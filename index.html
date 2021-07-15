@@ -71,6 +71,116 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-查询价格" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/wcmalley/2021/07/15/%E6%9F%A5%E8%AF%A2%E4%BB%B7%E6%A0%BC/" class="article-date">
+  <time class="dt-published" datetime="2021-07-15T03:11:31.000Z" itemprop="datePublished">2021-07-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/wcmalley/2021/07/15/%E6%9F%A5%E8%AF%A2%E4%BB%B7%E6%A0%BC/">查询价格</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>style<style>
+      *{
+          box-sizing: border-box;
+      }
+      input{
+          width: 200px;
+      }
+      ul{
+          border: 1px solid #aaa;
+          width: 200px;
+          padding: 0;
+      }
+      li{
+          list-style: none;
+      }
+      li >span:nth-child(2){
+          float: right;
+          padding: 0 10px;
+      }
+  </style></li>
+<li>HTML+js<body>
+  <h3>查询水果价格</h3>
+  <input type="text" name="" id="keyword">
+  <div class="result">
+      <ul>
+         <li>暂无查询结果</li>
+      </ul>
+  </div>
+  <script>
+      var fruits = [
+          {
+              name:'apple',
+              price:'$5'
+          },
+          {
+              name:'grreenapple',
+              price:'$3'
+          },
+          {
+              name:'redapple',
+              price:'$6'
+          },
+          {
+              name:'banana',
+              price:'$3'
+          },
+      ]
+      var keyword = document.querySelector('#keyword');
+      keyword.addEventListener('keyup',function(){
+          console.log('键盘弹起');
+          var word = this.value.trim();
+          console.log(word);
+          var flist = fruits.filter(fruit => fruit.name.indexOf(word) !== -1)
+          console.log(flist);
+          if(flist.length >0){
+              var html ='';
+              flist.forEach(function(fruit) {
+                  html += '<li>'+
+                  '<span>'+fruit.name+'</span> <span class="price">'+fruit.price+'</span>'+
+                  '</li>'
+              });
+              console.log(html);
+          }else{
+              html = '<li>暂无查询结果</li>'
+          }
+          var resultul = document.querySelector('.result > ul');
+          resultul.innerHTML =html;  
+      })
+</script>
+</body></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/15/%E6%9F%A5%E8%AF%A2%E4%BB%B7%E6%A0%BC/" data-id="ckr4checq0000pgvj49tjbw7m" data-title="查询价格" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-自定义菜单" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/wcmalley/2021/07/15/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95/" class="article-date">
@@ -236,7 +346,136 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <ul>
+<li><p>style</p>
+<style>
+      body {
+          display: flex;
+          justify-content: center;
+          min-height: 100vh;
+          align-items: center;
+          margin: 0;
+      }
+
+      .box::before {
+          content: '';
+          display: block;
+          width: 10px;
+          height: 60px;
+          background: #fff;
+          position: absolute;
+          left: -2px;
+      }
+
+      .box::after {
+          content: '';
+          display: block;
+          width: 10px;
+          height: 60px;
+          background: #fff;
+          position: absolute;
+          right: -2px;
+          bottom: 0;
+      }
+
+      .box {
+          width: 600px;
+          height: 600px;
+          border: 1px solid #000;
+          position: relative;
+      }
+
+      .diamond {
+          box-sizing: border-box;
+          width: 60px;
+          height: 60px;
+          border: 10px solid burlywood;
+          position: absolute;
+          z-index: 1;
+      }
+
+      .diamond::before {
+          content: '';
+          display: block;
+          width: 8px;
+          height: 60px;
+          background: burlywood;
+          transform: rotate(45deg);
+          position: absolute;
+          right: 16px;
+          top: -11px;
+      }
+      .diamond::after {
+          content: '';
+          display: block;
+          width: 8px;
+          height: 60px;
+          background: burlywood;
+          transform: rotate(135deg);
+          position: absolute;
+          right: 16px;
+          top: -11px;
+      }
+  </style></li>
+<li><p>html</p>
+</li>
+</ul>
+<body>
+    <div class="box">
+            <div class="diamond"></div>
+    </div>
+</body>
+
+<ul>
+<li><p>js</p>
+<script>
+      var diamond = document.querySelector('.diamond');
+      var position = {
+          left: 0,
+          top: 0
+      };
+      document.body.addEventListener('keyup', function (e) {
+          console.log(e.keyCode);
+          console.log(e.key);
+          if (e.keyCode === 38) {
+              console.log('向上移动');
+              position.top -= 60;
+              if(position.top < 0){
+                  position.top = 0;
+              }
+              diamond.style.top = position.top + 'px';
+          } else if (e.keyCode === 40) {
+              console.log('向下移动');
+              position.top += 60;
+              if(position.top >540){
+                  position.top =540;
+              }
+              diamond.style.top = position.top + 'px'
+          }else if (e.keyCode === 37) {
+              console.log('向左移动');
+              position.left -= 60;
+              if(position.left < 0){
+                  position.left = 0;
+              }
+              diamond.style.left = position.left + 'px';
+
+          }else if (e.keyCode === 39) {
+              console.log('向右移动');
+              if (position.top < 540) {
+                  if(position.left <540){
+                      position.left += 60;
+                  }else{
+                      position.left = 540
+                  }
+              }else{
+                  position.left += 60;
+              }
+              diamond.style.left = position.left + 'px'
+          }
+      })
+  </script></li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
@@ -421,6 +660,10 @@
       <ul>
         
           <li>
+            <a href="/wcmalley/2021/07/15/%E6%9F%A5%E8%AF%A2%E4%BB%B7%E6%A0%BC/">查询价格</a>
+          </li>
+        
+          <li>
             <a href="/wcmalley/2021/07/15/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95/">自定义菜单</a>
           </li>
         
@@ -434,10 +677,6 @@
         
           <li>
             <a href="/wcmalley/2021/07/13/%E6%94%BE%E5%A4%A7%E9%95%9C%E6%95%88%E6%9E%9C/">放大镜效果</a>
-          </li>
-        
-          <li>
-            <a href="/wcmalley/2021/07/13/myfirstblog/">myfirstblog</a>
           </li>
         
       </ul>
