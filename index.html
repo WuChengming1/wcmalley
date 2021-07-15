@@ -71,6 +71,149 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-自定义菜单" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/wcmalley/2021/07/15/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95/" class="article-date">
+  <time class="dt-published" datetime="2021-07-15T02:58:44.000Z" itemprop="datePublished">2021-07-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/wcmalley/2021/07/15/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95/">自定义菜单</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">icon连接</a></p>
+<ul>
+<li>style</li>
+</ul>
+<style>
+        body{
+            min-height: 100vh;
+        }
+        .menu{
+            width: 80px;
+            /* height: 100px; */
+            border: 1px solid #000;
+            display: none;
+            position: fixed;
+        }
+        .menu ul{
+            margin: 0;
+            padding: 0  10px;
+        }
+        .menu li{
+            list-style: none;
+        }
+        .menu li +li {
+            border-top: 1px dashed #000;
+        }
+    </style>
+
+<ul>
+<li>html</li>
+</ul>
+<div class="menu">
+        <ul>
+            <li><i class="fa fa-folder" aria-hidden="true"></i> 打开</li>
+            <li><i class="fa fa-file" aria-hidden="true"></i> 新建</li>
+            <li><i class="fa fa-floppy-o" aria-hidden="true"></i> 保存</li>
+        </ul>
+</div>
+
+<ul>
+<li>js</li>
+</ul>
+<script>
+        var menu = document.querySelector('.menu');
+        document.body.addEventListener('contextmenu',function(event){
+            event.preventDefault();
+            console.log(event);
+            var x = event.clientX;
+            var y = event.clientY;
+            menu.style.left = x + 'px';
+            menu.style.top= y + 'px';
+            menu.style.display = 'block';
+        })
+</script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/15/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95/" data-id="ckr4bqa7z0000isvj6vec0bu5" data-title="自定义菜单" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-temp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/wcmalley/2021/07/14/temp/" class="article-date">
+  <time class="dt-published" datetime="2021-07-14T06:47:16.398Z" itemprop="datePublished">2021-07-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="一Markdown基本语法"><a href="#一Markdown基本语法" class="headerlink" title="一Markdown基本语法"></a>一Markdown基本语法</h1><h2 id="二级标题菜单"><a href="#二级标题菜单" class="headerlink" title="二级标题菜单"></a>二级标题菜单</h2><h3 id="三级标题菜单"><a href="#三级标题菜单" class="headerlink" title="三级标题菜单"></a>三级标题菜单</h3><h4 id="四级标题菜单"><a href="#四级标题菜单" class="headerlink" title="四级标题菜单"></a>四级标题菜单</h4><h5 id="五级标题菜单"><a href="#五级标题菜单" class="headerlink" title="五级标题菜单"></a>五级标题菜单</h5><h6 id="六级标题菜单"><a href="#六级标题菜单" class="headerlink" title="六级标题菜单"></a>六级标题菜单</h6><!-- ***分割线 -->
+<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><ol>
+<li>真好用</li>
+<li>要有空格</li>
+<li>good</li>
+</ol>
+<hr>
+<p>无序列表</p>
+<ul>
+<li>我有一个梦</li>
+</ul>
+<ul>
+<li>那就是彩虹</li>
+</ul>
+<ul>
+<li>小巷</li>
+</ul>
+<hr>
+<p><strong>变粗</strong> 没加粗<br><em>切斜</em> 不倾斜</p>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<p><code>代码</code></p>
+<p><a target="_blank" rel="noopener" href="http://www.baidu.com/">百度</a></p>
+<p><img src="https://tvax3.sinaimg.cn/large/7206d247ly1gsgjyir1i3j20dw0db74j.jpg" alt="图片" title="404"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/14/temp/" data-id="ckr34fbg30001rwvjc6buev17" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-推箱子" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/wcmalley/2021/07/14/%E6%8E%A8%E7%AE%B1%E5%AD%90/" class="article-date">
@@ -93,11 +236,11 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="推箱子"><a href="#推箱子" class="headerlink" title="推箱子"></a>推箱子</h1>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/14/%E6%8E%A8%E7%AE%B1%E5%AD%90/" data-id="ckr38r36d0000m8vjgb958mqg" data-title="推箱子" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/07/14/%E6%8E%A8%E7%AE%B1%E5%AD%90/" data-id="ckr330ozj0000rwvjfbsie1ld" data-title="推箱子" class="article-share-link">Share</a>
       
       
       
@@ -278,6 +421,14 @@
       <ul>
         
           <li>
+            <a href="/wcmalley/2021/07/15/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95/">自定义菜单</a>
+          </li>
+        
+          <li>
+            <a href="/wcmalley/2021/07/14/temp/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/wcmalley/2021/07/14/%E6%8E%A8%E7%AE%B1%E5%AD%90/">推箱子</a>
           </li>
         
@@ -287,10 +438,6 @@
         
           <li>
             <a href="/wcmalley/2021/07/13/myfirstblog/">myfirstblog</a>
-          </li>
-        
-          <li>
-            <a href="/wcmalley/2021/07/13/hello-world/">Hello World</a>
           </li>
         
       </ul>
