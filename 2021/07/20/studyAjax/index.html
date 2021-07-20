@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>myfirstblog | Hexo</title>
+  <title>studyAjax | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="我的第一篇博客 Javascript 高级程序设计 (event) 防抖:每一次在单位时间内要发生第二次，上一次就取消 节流：固定周期，只执行一次动作，若有事件触发，不执行，周期结束后，又有事件触发，开始新的周期">
+  <meta name="description" content="XHR基本步骤1234var xhr &#x3D; new XMLHttpRequest(); &#x2F;&#x2F;1.初始化一个xhr实例xhr.open(&quot;get&quot;, &quot;http:&#x2F;&#x2F;localhost:3000&#x2F;books&quot;, true); &#x2F;&#x2F;open方法 只是配置 并没有真正发起请求&#x2F;&#x2F;2.配置请求的信息 第一个参数(method)方法发送的方式，第二个参数URL请求的地">
 <meta property="og:type" content="article">
-<meta property="og:title" content="myfirstblog">
-<meta property="og:url" content="http://example.com/2021/07/13/myfirstblog/index.html">
+<meta property="og:title" content="studyAjax">
+<meta property="og:url" content="http://example.com/2021/07/20/studyAjax/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="我的第一篇博客 Javascript 高级程序设计 (event) 防抖:每一次在单位时间内要发生第二次，上一次就取消 节流：固定周期，只执行一次动作，若有事件触发，不执行，周期结束后，又有事件触发，开始新的周期">
+<meta property="og:description" content="XHR基本步骤1234var xhr &#x3D; new XMLHttpRequest(); &#x2F;&#x2F;1.初始化一个xhr实例xhr.open(&quot;get&quot;, &quot;http:&#x2F;&#x2F;localhost:3000&#x2F;books&quot;, true); &#x2F;&#x2F;open方法 只是配置 并没有真正发起请求&#x2F;&#x2F;2.配置请求的信息 第一个参数(method)方法发送的方式，第二个参数URL请求的地">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-07-13T15:03:13.000Z">
-<meta property="article:modified_time" content="2021-07-13T15:09:59.740Z">
+<meta property="article:published_time" content="2021-07-20T12:38:05.000Z">
+<meta property="article:modified_time" content="2021-07-20T14:18:59.853Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -73,10 +73,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-myfirstblog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-studyAjax" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/wcmalley/2021/07/13/myfirstblog/" class="article-date">
-  <time class="dt-published" datetime="2021-07-13T15:03:13.000Z" itemprop="datePublished">2021-07-13</time>
+    <a href="/wcmalley/2021/07/20/studyAjax/" class="article-date">
+  <time class="dt-published" datetime="2021-07-20T12:38:05.000Z" itemprop="datePublished">2021-07-20</time>
 </a>
     
   </div>
@@ -87,7 +87,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      myfirstblog
+      studyAjax
     </h1>
   
 
@@ -95,16 +95,43 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="我的第一篇博客"><a href="#我的第一篇博客" class="headerlink" title="我的第一篇博客"></a>我的第一篇博客</h1><ul>
-<li>Javascript 高级程序设计 (event)</li>
-<li>防抖:每一次在单位时间内要发生第二次，上一次就取消</li>
-<li>节流：固定周期，只执行一次动作，若有事件触发，不执行，周期结束后，又有事件触发，开始新的周期</li>
+        <ul>
+<li>XHR基本步骤<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var xhr = new XMLHttpRequest(); //1.初始化一个xhr实例</span><br><span class="line">xhr.open(&quot;get&quot;, &quot;http://localhost:3000/books&quot;, true); //open方法 只是配置 并没有真正发起请求</span><br><span class="line">//2.配置请求的信息 第一个参数(method)方法发送的方式，第二个参数URL请求的地址，第三个参数，同步（ture）还是异步默认FALSE，</span><br><span class="line">xhr.send(null); //3.send() 方法接收一个参数，即要作为请求主体发送的数据。没有null</span><br></pre></td></tr></table></figure></li>
+<li>method方法<ol>
+<li>get           查询数据，url带着查询参数</li>
+<li>post           新增数据,数据放在request body不在URL中</li>
+<li>put           更新数据,全部更新</li>
+<li>patch(打补丁)    更新数据,局部更新</li>
+<li>delete       更新数据  全部更新</li>
+<li>head       获取数据的信息,不要数据内容</li>
+<li>option       测试服务器支持那些方法</li>
+</ol>
+</li>
 </ul>
+<p><strong>接口规范</strong></p>
+<ul>
+<li>resetful 风格的接口<ol>
+<li>get   /api/books：获取所有书籍数据</li>
+<li>get   /api/books/007  获取id为007的一本书</li>
+<li>get   /api/books/？pagenum=1&amp;pagesize = 10  获取第一页十条数据</li>
+<li>post  /api/books   增加</li>
+<li>post  /api/books/007  修改id为007的这本书 全量更新 用数据完全覆盖后台数据，只保留id</li>
+<li>patct   /api/books/007  修改id为007的这本书 局部更新 用数据修改后台数据，如果有新增， 增加</li>
+<li>delete   /api/books/007  删除id为007的这本书</li>
+</ol>
+</li>
+</ul>
+<p><strong>辅助模拟服务器</strong></p>
+<ol>
+<li>安装 npm install -g json-server</li>
+<li>启动服务器json-server -w books.json</li>
+<li>延时操作 json-server -w -d 3000 books.json</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/13/myfirstblog/" data-id="ckr4dp3w00001ycvjatuq3on1" data-title="myfirstblog" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/07/20/studyAjax/" data-id="ckrc585ah00007gvj884va0zy" data-title="studyAjax" class="article-share-link">Share</a>
       
       
       
@@ -114,19 +141,10 @@
     
 <nav id="article-nav">
   
-    <a href="/wcmalley/2021/07/13/%E6%94%BE%E5%A4%A7%E9%95%9C%E6%95%88%E6%9E%9C/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          放大镜效果
-        
-      </div>
-    </a>
   
-  
-    <a href="/wcmalley/2021/07/13/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/wcmalley/2021/07/20/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B8%8E%E8%B0%83%E8%AF%95%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E7%B1%BB%E5%9E%8B/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">错误处理与调试常见错误类型</div>
     </a>
   
 </nav>

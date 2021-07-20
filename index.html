@@ -71,6 +71,76 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-studyAjax" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/wcmalley/2021/07/20/studyAjax/" class="article-date">
+  <time class="dt-published" datetime="2021-07-20T12:38:05.000Z" itemprop="datePublished">2021-07-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/wcmalley/2021/07/20/studyAjax/">studyAjax</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>XHR基本步骤<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var xhr = new XMLHttpRequest(); //1.初始化一个xhr实例</span><br><span class="line">xhr.open(&quot;get&quot;, &quot;http://localhost:3000/books&quot;, true); //open方法 只是配置 并没有真正发起请求</span><br><span class="line">//2.配置请求的信息 第一个参数(method)方法发送的方式，第二个参数URL请求的地址，第三个参数，同步（ture）还是异步默认FALSE，</span><br><span class="line">xhr.send(null); //3.send() 方法接收一个参数，即要作为请求主体发送的数据。没有null</span><br></pre></td></tr></table></figure></li>
+<li>method方法<ol>
+<li>get           查询数据，url带着查询参数</li>
+<li>post           新增数据,数据放在request body不在URL中</li>
+<li>put           更新数据,全部更新</li>
+<li>patch(打补丁)    更新数据,局部更新</li>
+<li>delete       更新数据  全部更新</li>
+<li>head       获取数据的信息,不要数据内容</li>
+<li>option       测试服务器支持那些方法</li>
+</ol>
+</li>
+</ul>
+<p><strong>接口规范</strong></p>
+<ul>
+<li>resetful 风格的接口<ol>
+<li>get   /api/books：获取所有书籍数据</li>
+<li>get   /api/books/007  获取id为007的一本书</li>
+<li>get   /api/books/？pagenum=1&amp;pagesize = 10  获取第一页十条数据</li>
+<li>post  /api/books   增加</li>
+<li>post  /api/books/007  修改id为007的这本书 全量更新 用数据完全覆盖后台数据，只保留id</li>
+<li>patct   /api/books/007  修改id为007的这本书 局部更新 用数据修改后台数据，如果有新增， 增加</li>
+<li>delete   /api/books/007  删除id为007的这本书</li>
+</ol>
+</li>
+</ul>
+<p><strong>辅助模拟服务器</strong></p>
+<ol>
+<li>安装 npm install -g json-server</li>
+<li>启动服务器json-server -w books.json</li>
+<li>延时操作 json-server -w -d 3000 books.json</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/20/studyAjax/" data-id="ckrc585ah00007gvj884va0zy" data-title="studyAjax" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-错误处理与调试常见错误类型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/wcmalley/2021/07/20/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B8%8E%E8%B0%83%E8%AF%95%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E7%B1%BB%E5%9E%8B/" class="article-date">
@@ -418,7 +488,7 @@
         <p>#实现放大镜</p>
 <ul>
 <li>css代码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        .container &#123;</span><br><span class="line">            width: 960px;</span><br><span class="line">            border: 1px solid #000;</span><br><span class="line">            margin: 0 auto;</span><br><span class="line">            position: relative;</span><br><span class="line">        &#125;</span><br><span class="line">        .mark &#123;</span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 300px;</span><br><span class="line">            background: rgba(255, 255, 0, 0.5);</span><br><span class="line">            position: absolute;</span><br><span class="line">            top: 0;</span><br><span class="line">            left: 0;</span><br><span class="line">            pointer-events: none;</span><br><span class="line">        &#125;</span><br><span class="line">        .small &#123;</span><br><span class="line">            width: 450px;</span><br><span class="line">            height: 450px;</span><br><span class="line">            border: 1px solid #000;</span><br><span class="line">            /* float: left; */</span><br><span class="line">            position: relative;</span><br><span class="line">            cursor: pointer;</span><br><span class="line">        &#125;</span><br><span class="line">        .big &#123;</span><br><span class="line">            width: 540px;</span><br><span class="line">            height: 540px;</span><br><span class="line">            border: 1px solid #000;</span><br><span class="line">            position: absolute;</span><br><span class="line">            top: 0;</span><br><span class="line">            left: 450px;</span><br><span class="line">            display: none;</span><br><span class="line">            /* background: #f00; */</span><br><span class="line">            overflow: hidden;</span><br><span class="line">        &#125;</span><br><span class="line">        .bigimg&#123;</span><br><span class="line">            position: absolute;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure></li>
-<li>html代码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">     &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;small&quot;&gt;</span><br><span class="line">            &lt;img src=&quot;./small.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;mark&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;big&quot;&gt;</span><br><span class="line">            &lt;img class=&quot;bigimg&quot; src=&quot;./big.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></li>
+<li>html代码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">     &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;small&quot;&gt;</span><br><span class="line">            &lt;img src=&quot;https://tvax1.sinaimg.cn/large/7206d247ly1gsnov903ptj20ci0ci3yu.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;mark&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;big&quot;&gt;</span><br><span class="line">            &lt;img class=&quot;bigimg&quot; src=&quot;https://tvax1.sinaimg.cn/large/7206d247ly1gsnou6112gj20m80m8wfx.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></li>
 <li>js代码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">       var small = document.querySelector(&#x27;.small&#x27;);</span><br><span class="line">       var big = document.querySelector(&#x27;.big&#x27;);</span><br><span class="line">       var mark = document.querySelector(&#x27;.mark&#x27;);</span><br><span class="line">       var bigimg = document.querySelector(&#x27;.bigimg&#x27;);</span><br><span class="line">       var timer;</span><br><span class="line">       small.addEventListener(&#x27;mousemove&#x27;, function (e) &#123;</span><br><span class="line">           var x = e.offsetX;</span><br><span class="line">           var y = e.offsetY;</span><br><span class="line">           var markx =  (x - 150) &lt; 0 ? 0 : (x - 150) &gt;= 150 ?  150: (x - 150) ;</span><br><span class="line">           var marky = (y - 150) &lt; 0 ? 0 : (y - 150) &gt;= 150 ?  150: (y - 150) ;</span><br><span class="line">           mark.style.left = markx + &#x27;px&#x27;;</span><br><span class="line">           mark.style.top = marky + &#x27;px&#x27;;</span><br><span class="line">           // console.log(&#x27;移动&#x27;);</span><br><span class="line">           var bigimgx = markx / 450 * 800;</span><br><span class="line">           var bigimgy = marky / 450 * 800;</span><br><span class="line">           // console.log(bigimgx,bigimgy);</span><br><span class="line">           bigimg.style.left = &#x27;-&#x27;+ bigimgx + &#x27;px&#x27;;</span><br><span class="line">           bigimg.style.top = &#x27;-&#x27;+ bigimgy + &#x27;px&#x27;;</span><br><span class="line"></span><br><span class="line">       &#125;)</span><br><span class="line"></span><br><span class="line">       small.addEventListener(&#x27;mouseenter&#x27;, function () &#123;</span><br><span class="line">           big.style.display = &#x27;block&#x27;;</span><br><span class="line">       &#125;)</span><br><span class="line">       small.addEventListener(&#x27;mouseleave&#x27;, function () &#123;</span><br><span class="line">           // big.style.display = &#x27;none&#x27;;</span><br><span class="line">       &#125;)</span><br><span class="line">   &lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
@@ -480,58 +550,12 @@
 
 
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/wcmalley/2021/07/13/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-07-13T14:55:39.661Z" itemprop="datePublished">2021-07-13</time>
-</a>
+
+
+  <nav id="page-nav">
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/wcmalley/2021/07/13/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/13/hello-world/" data-id="ckr4dp3vm0000ycvj1212cktt" data-title="Hello World" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/wcmalley/page/2/">2</a><a class="extend next" rel="next" href="/wcmalley/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -562,6 +586,10 @@
       <ul>
         
           <li>
+            <a href="/wcmalley/2021/07/20/studyAjax/">studyAjax</a>
+          </li>
+        
+          <li>
             <a href="/wcmalley/2021/07/20/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B8%8E%E8%B0%83%E8%AF%95%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E7%B1%BB%E5%9E%8B/">错误处理与调试常见错误类型</a>
           </li>
         
@@ -575,10 +603,6 @@
         
           <li>
             <a href="/wcmalley/2021/07/15/%E6%9F%A5%E8%AF%A2%E4%BB%B7%E6%A0%BC/">查询价格</a>
-          </li>
-        
-          <li>
-            <a href="/wcmalley/2021/07/15/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95/">自定义菜单</a>
           </li>
         
       </ul>
