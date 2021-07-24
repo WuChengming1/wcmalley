@@ -71,6 +71,93 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-放大镜效果" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/wcmalley/2021/07/13/%E6%94%BE%E5%A4%A7%E9%95%9C%E6%95%88%E6%9E%9C/" class="article-date">
+  <time class="dt-published" datetime="2021-07-13T15:12:42.000Z" itemprop="datePublished">2021-07-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/wcmalley/2021/07/13/%E6%94%BE%E5%A4%A7%E9%95%9C%E6%95%88%E6%9E%9C/">放大镜效果</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>#实现放大镜</p>
+<ul>
+<li>css代码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        .container &#123;</span><br><span class="line">            width: 960px;</span><br><span class="line">            border: 1px solid #000;</span><br><span class="line">            margin: 0 auto;</span><br><span class="line">            position: relative;</span><br><span class="line">        &#125;</span><br><span class="line">        .mark &#123;</span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 300px;</span><br><span class="line">            background: rgba(255, 255, 0, 0.5);</span><br><span class="line">            position: absolute;</span><br><span class="line">            top: 0;</span><br><span class="line">            left: 0;</span><br><span class="line">            pointer-events: none;</span><br><span class="line">        &#125;</span><br><span class="line">        .small &#123;</span><br><span class="line">            width: 450px;</span><br><span class="line">            height: 450px;</span><br><span class="line">            border: 1px solid #000;</span><br><span class="line">            /* float: left; */</span><br><span class="line">            position: relative;</span><br><span class="line">            cursor: pointer;</span><br><span class="line">        &#125;</span><br><span class="line">        .big &#123;</span><br><span class="line">            width: 540px;</span><br><span class="line">            height: 540px;</span><br><span class="line">            border: 1px solid #000;</span><br><span class="line">            position: absolute;</span><br><span class="line">            top: 0;</span><br><span class="line">            left: 450px;</span><br><span class="line">            display: none;</span><br><span class="line">            /* background: #f00; */</span><br><span class="line">            overflow: hidden;</span><br><span class="line">        &#125;</span><br><span class="line">        .bigimg&#123;</span><br><span class="line">            position: absolute;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure></li>
+<li>html代码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">     &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;small&quot;&gt;</span><br><span class="line">            &lt;img src=&quot;https://tvax1.sinaimg.cn/large/7206d247ly1gsnov903ptj20ci0ci3yu.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;mark&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;big&quot;&gt;</span><br><span class="line">            &lt;img class=&quot;bigimg&quot; src=&quot;https://tvax1.sinaimg.cn/large/7206d247ly1gsnou6112gj20m80m8wfx.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></li>
+<li>js代码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">       var small = document.querySelector(&#x27;.small&#x27;);</span><br><span class="line">       var big = document.querySelector(&#x27;.big&#x27;);</span><br><span class="line">       var mark = document.querySelector(&#x27;.mark&#x27;);</span><br><span class="line">       var bigimg = document.querySelector(&#x27;.bigimg&#x27;);</span><br><span class="line">       var timer;</span><br><span class="line">       small.addEventListener(&#x27;mousemove&#x27;, function (e) &#123;</span><br><span class="line">           var x = e.offsetX;</span><br><span class="line">           var y = e.offsetY;</span><br><span class="line">           var markx =  (x - 150) &lt; 0 ? 0 : (x - 150) &gt;= 150 ?  150: (x - 150) ;</span><br><span class="line">           var marky = (y - 150) &lt; 0 ? 0 : (y - 150) &gt;= 150 ?  150: (y - 150) ;</span><br><span class="line">           mark.style.left = markx + &#x27;px&#x27;;</span><br><span class="line">           mark.style.top = marky + &#x27;px&#x27;;</span><br><span class="line">           // console.log(&#x27;移动&#x27;);</span><br><span class="line">           var bigimgx = markx / 450 * 800;</span><br><span class="line">           var bigimgy = marky / 450 * 800;</span><br><span class="line">           // console.log(bigimgx,bigimgy);</span><br><span class="line">           bigimg.style.left = &#x27;-&#x27;+ bigimgx + &#x27;px&#x27;;</span><br><span class="line">           bigimg.style.top = &#x27;-&#x27;+ bigimgy + &#x27;px&#x27;;</span><br><span class="line"></span><br><span class="line">       &#125;)</span><br><span class="line"></span><br><span class="line">       small.addEventListener(&#x27;mouseenter&#x27;, function () &#123;</span><br><span class="line">           big.style.display = &#x27;block&#x27;;</span><br><span class="line">       &#125;)</span><br><span class="line">       small.addEventListener(&#x27;mouseleave&#x27;, function () &#123;</span><br><span class="line">           // big.style.display = &#x27;none&#x27;;</span><br><span class="line">       &#125;)</span><br><span class="line">   &lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/13/%E6%94%BE%E5%A4%A7%E9%95%9C%E6%95%88%E6%9E%9C/" data-id="ckr4dp3w40004ycvj7yke7loh" data-title="放大镜效果" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-myfirstblog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/wcmalley/2021/07/13/myfirstblog/" class="article-date">
+  <time class="dt-published" datetime="2021-07-13T15:03:13.000Z" itemprop="datePublished">2021-07-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/wcmalley/2021/07/13/myfirstblog/">myfirstblog</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="我的第一篇博客"><a href="#我的第一篇博客" class="headerlink" title="我的第一篇博客"></a>我的第一篇博客</h1><ul>
+<li>Javascript 高级程序设计 (event)</li>
+<li>防抖:每一次在单位时间内要发生第二次，上一次就取消</li>
+<li>节流：固定周期，只执行一次动作，若有事件触发，不执行，周期结束后，又有事件触发，开始新的周期</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/13/myfirstblog/" data-id="ckr4dp3w00001ycvjatuq3on1" data-title="myfirstblog" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/wcmalley/2021/07/13/hello-world/" class="article-date">
@@ -158,6 +245,14 @@
       <ul>
         
           <li>
+            <a href="/wcmalley/2021/07/24/FielReader/">FielReader</a>
+          </li>
+        
+          <li>
+            <a href="/wcmalley/2021/07/24/cookiesLocalSession/">cookiesLocalSession</a>
+          </li>
+        
+          <li>
             <a href="/wcmalley/2021/07/20/studyAjax/">studyAjax</a>
           </li>
         
@@ -167,14 +262,6 @@
         
           <li>
             <a href="/wcmalley/2021/07/20/%E8%8E%B7%E5%8F%96%E9%AA%8C%E8%AF%81%E7%A0%81%E9%A1%B5%E9%9D%A2/">获取验证码页面</a>
-          </li>
-        
-          <li>
-            <a href="/wcmalley/2021/07/20/3d%E7%9B%B8%E5%86%8C/">3d相册</a>
-          </li>
-        
-          <li>
-            <a href="/wcmalley/2021/07/15/%E6%9F%A5%E8%AF%A2%E4%BB%B7%E6%A0%BC/">查询价格</a>
           </li>
         
       </ul>

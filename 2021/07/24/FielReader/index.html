@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>FielReader | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一、Filse提供（h5新增FileReader类型） FileReader类型：是一种异步文件读取机制，可以读图片、普通文件word、Excel、等预览效果， FileReader 有三个事件progress(更新)：每50毫秒触发一次、error(错误):这个属性是一个对象只有code一个属性(1,2,3,4,5)、load(完成):加载完成后触发，如遇到错误不会触发最主要掌握readAsDa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FielReader">
+<meta property="og:url" content="http://example.com/2021/07/24/FielReader/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、Filse提供（h5新增FileReader类型） FileReader类型：是一种异步文件读取机制，可以读图片、普通文件word、Excel、等预览效果， FileReader 有三个事件progress(更新)：每50毫秒触发一次、error(错误):这个属性是一个对象只有code一个属性(1,2,3,4,5)、load(完成):加载完成后触发，如遇到错误不会触发最主要掌握readAsDa">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-24T08:32:52.000Z">
+<meta property="article:modified_time" content="2021-07-24T08:53:03.581Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/wcmalley/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/wcmalley/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/wcmalley/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/wcmalley/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/wcmalley/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/wcmalley/">Home</a>
+        
+          <a class="main-nav-link" href="/wcmalley/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/wcmalley/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-FielReader" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/wcmalley/2021/07/24/FielReader/" class="article-date">
+  <time class="dt-published" datetime="2021-07-24T08:32:52.000Z" itemprop="datePublished">2021-07-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      FielReader
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="一、Filse提供（h5新增FileReader类型）"><a href="#一、Filse提供（h5新增FileReader类型）" class="headerlink" title="一、Filse提供（h5新增FileReader类型）"></a>一、Filse提供（h5新增FileReader类型）</h2><ol>
+<li>FileReader类型：是一种异步文件读取机制，可以读图片、普通文件word、Excel、等预览效果，</li>
+<li>FileReader 有三个事件progress(更新)：每50毫秒触发一次、error(错误):这个属性是一个对象只有code一个属性(1,2,3,4,5)、load(完成):加载完成后触发，如遇到错误不会触发<br>最主要掌握readAsDataURL(file):读取文件将内容的数据url保存在result属性中。可以本地预览，还可以进行裁切，//beas64浏览器可以识别。</li>
+</ol>
+<ul>
+<li>示例<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        .box&#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            border: 1px solid #000 ;</span><br><span class="line">        &#125;</span><br><span class="line">        .box img&#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 100%;</span><br><span class="line">        &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">        &lt;img src=&quot;&quot; alt=&quot;&quot; id=&quot;prview&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;input type=&quot;file&quot; id=&quot;avastar&quot;&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var avastar = document.querySelector(&#x27;#avastar&#x27;);</span><br><span class="line">        var prview = document.querySelector(&#x27;#prview&#x27;);</span><br><span class="line">        avastar.addEventListener(&#x27;change&#x27;, function()&#123;</span><br><span class="line">            var reader = new FileReader(); //1.先构造一个实例</span><br><span class="line">            reader.addEventListener(&#x27;load&#x27;,function()&#123; //3.读成功后监听它的load事件</span><br><span class="line">                console.log(reader.result);</span><br><span class="line">                prview.setAttribute(&#x27;src&#x27;,reader.result)</span><br><span class="line">            &#125;)</span><br><span class="line">            reader.readAsDataURL(avastar.files[0]);//2.读取图片</span><br><span class="line">        &#125;) </span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/24/FielReader/" data-id="ckrhncrdf0000z0vj72ecelnw" data-title="FielReader" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/wcmalley/2021/07/24/cookiesLocalSession/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">cookiesLocalSession</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/wcmalley/archives/2021/07/">July 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/wcmalley/2021/07/24/FielReader/">FielReader</a>
+          </li>
+        
+          <li>
+            <a href="/wcmalley/2021/07/24/cookiesLocalSession/">cookiesLocalSession</a>
+          </li>
+        
+          <li>
+            <a href="/wcmalley/2021/07/20/studyAjax/">studyAjax</a>
+          </li>
+        
+          <li>
+            <a href="/wcmalley/2021/07/20/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B8%8E%E8%B0%83%E8%AF%95%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E7%B1%BB%E5%9E%8B/">错误处理与调试常见错误类型</a>
+          </li>
+        
+          <li>
+            <a href="/wcmalley/2021/07/20/%E8%8E%B7%E5%8F%96%E9%AA%8C%E8%AF%81%E7%A0%81%E9%A1%B5%E9%9D%A2/">获取验证码页面</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/wcmalley/" class="mobile-nav-link">Home</a>
+  
+    <a href="/wcmalley/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/wcmalley/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/wcmalley/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/wcmalley/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
