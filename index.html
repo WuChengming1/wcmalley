@@ -71,6 +71,238 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ES6" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/wcmalley/2021/08/05/ES6/" class="article-date">
+  <time class="dt-published" datetime="2021-08-04T16:48:34.000Z" itemprop="datePublished">2021-08-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/wcmalley/2021/08/05/ES6/">ES6</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-Var-let-const区别？"><a href="#1-Var-let-const区别？" class="headerlink" title="1.Var /let/const区别？"></a>1.Var /let/const区别？</h2><ol>
+<li>从可变性来：var、let一组都可变，const 不可变；</li>
+<li>作用域分：var没有块级作用域，let、const有块级作用域；<pre><code>     var允许重复声明，let、const不可以重复声明；
+     var声明变量会提升。let、const不会提升；
+</code></pre>
+<h2 id="例背景切换"><a href="#例背景切换" class="headerlink" title="例背景切换"></a>例背景切换</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">       const &#123;random,floor&#125;=Math;</span><br><span class="line">       const red = floor(random()*256);</span><br><span class="line">       const green = floor(random()*256);</span><br><span class="line">       const blue = floor(random()*256);</span><br><span class="line">       function formatColor(colorNum)&#123;</span><br><span class="line">           return colorNum &gt; 15 ? colorNum.toString(16) : `0$&#123;colorNum.toString(16)&#125;`;</span><br><span class="line">       &#125;</span><br><span class="line">       console.log(red,green,blue);</span><br><span class="line">       // const bgcolor =`rgba($&#123;red&#125;,$&#123;green&#125;,$&#123;blue&#125;,0.3)`;</span><br><span class="line">       const bgcolor =`#$&#123;formatColor(red)&#125;$&#123;formatColor(green)&#125;$&#123;formatColor(blue)&#125;`; //16进制</span><br><span class="line">       document.body.style.backgroundColor = bgcolor;</span><br><span class="line">   &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2> 1.删除function关键字<br> 2.如果只有一个参数括号可以省略<br> 3.后面加=》<br> 4.如果有默认返回 大括号省略，return关键字删除<br> let f = v =&gt; v;<br> 5.箭头函数没有this，是词法作用域，箭头函数的this写在什么地方，就自动绑定到当前作用域.<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .chess &#123;</span><br><span class="line">           width: 200px;</span><br><span class="line">           height: 200px;</span><br><span class="line">           border: 1px solid #000;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">   &lt;div class=&quot;chess&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   document.querySelector(&#x27;.chess&#x27;).addEventListener(&#x27;click&#x27;,function()&#123;</span><br><span class="line">           // let self =this;</span><br><span class="line">           setTimeout(() =&gt; &#123;</span><br><span class="line">               this.style.background=&#x27;red&#x27;;</span><br><span class="line">               console.log(one);</span><br><span class="line">           &#125;, 0);  //异步，如果是零秒也是先执行后面的two,在执行异步</span><br><span class="line">           console.log(two);</span><br><span class="line">           // setInterval(最小延时4ms)</span><br><span class="line">       &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="正则"><a href="#正则" class="headerlink" title="正则"></a>正则</h2></li>
+<li>test() 方法执行一个检索，用来查看正则表达式与指定的字符串是否匹配。返回 true 或 false。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const strin = &#x27;how are you&#x27;;</span><br><span class="line">const result = /^how/.test(strin);</span><br><span class="line">console.log(result); //true</span><br></pre></td></tr></table></figure></li>
+<li>exec() 方法在一个指定字符串中执行一个搜索匹配。返回一个结果数组或 null。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var matches = /(hello \S+)/.exec(&#x27;This is a hello world!&#x27;);</span><br><span class="line">      console.log(matches[1]); //hello world!</span><br></pre></td></tr></table></figure>
+<h3 id="ES6-出现之前，字符串对象共有-4-个方法，可以使用正则表达式：match-、replace-、search-和split-。"><a href="#ES6-出现之前，字符串对象共有-4-个方法，可以使用正则表达式：match-、replace-、search-和split-。" class="headerlink" title="ES6 出现之前，字符串对象共有 4 个方法，可以使用正则表达式：match()、replace()、search()和split()。"></a>ES6 出现之前，字符串对象共有 4 个方法，可以使用正则表达式：match()、replace()、search()和split()。</h3></li>
+<li>match():方法检索返回一个字符串匹配正则表达式的结果。类似exec(用正则在字符串中查找)<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const paragraph = &#x27;The quick brown fox jumps over the lazy dog. It barked.&#x27;;</span><br><span class="line">const found = paragraph.match(/[A-Z]/g);</span><br><span class="line">console.log(found); </span><br><span class="line">结果//Array [ &quot;T&quot;, &quot;I&quot; ]</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>例1</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const greet = &#x27;hello wwworld&#x27;;</span><br><span class="line">const pattern = /(.)\1\1/ ;</span><br><span class="line">//俩个连续的字符,.匹配任意字符\1在重复一遍，1是分组1;+(代表会出现很多遍),d(表示数字)</span><br><span class="line">console.log(greet.match(pattern)); //match(接正则),Array [ &quot;www&quot;, &quot;w&quot; ]</span><br><span class="line">console.log(greet.replace(&#x27;e&#x27;, &#x27;o&#x27;));</span><br><span class="line">结果://hollo wwworld</span><br></pre></td></tr></table></figure>
+<p><strong>例2:在数字前面插入¥</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const price = &quot;苹果3.5 香蕉2.4 西瓜3.6&quot;;</span><br><span class="line">      const pt = /\d+\.\d+/g;</span><br><span class="line">      //(\d)代表所有数字,(+)可能会出现多遍（\.）点需要转义为普通字符，(g)全局</span><br><span class="line">      console.log(price.match(pt));</span><br><span class="line">      const aa = price.replace(pt, &#x27;￥&#x27; + &#x27;$&amp;&#x27;); //$&amp;表示自己</span><br><span class="line">      const aa1 = price.split(/\d+\.\d/g); //$&amp;表示自己</span><br><span class="line">      console.log(aa); //苹果￥3.5 香蕉￥2.4 西瓜￥3.6 </span><br><span class="line">      console.log(aa1); //Array(4) [ &quot;苹果&quot;, &quot; 香蕉&quot;, &quot; 西瓜&quot;, &quot;&quot; ]</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li> replace() 将匹配的‘高高兴兴’这样的字符?<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const paragraph = &#x27;我高高兴兴的回家，开开心心的吃饭。&#x27;;</span><br><span class="line">const par = paragraph.replace(/(.)\1(.)\2/g, &#x27;$2$2$1$1&#x27;); //将四字成语调换位置</span><br><span class="line">// const par = paragraph.replace(/(.)\1(.)\2/g,&#x27;$1$1$2$2&#x27;);</span><br><span class="line">const par1 = paragraph.replace(/(.)\1(.)\2/g, &#x27;$1$2$1$2&#x27;); //交叉</span><br><span class="line">const par2 = paragraph.replace(/(.)\1(.)\2/g, &#x27;$&amp;$&amp;&#x27;); //俩遍</span><br><span class="line">const par3 = paragraph.replace(/.+/, &#x27;$&amp;$&amp;$&amp;&#x27;); //任意字符出现任意次</span><br><span class="line">console.log(par);  // 我兴兴高高的回家，心心开开的吃饭。</span><br><span class="line">console.log(par1); //我高兴高兴的回家，开心开心的吃饭</span><br><span class="line">console.log(par2);//我高高兴兴高高兴兴的回家，开开心心开开心心的吃饭。</span><br><span class="line">console.log(par3);//我高高兴兴的回家，开开心心的吃饭。我高高兴兴的回家，开开心心的吃饭。我高高兴兴的回家，开开心心的吃饭。  </span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>例:将字符串设为加密</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const bb = &#x27;hello new world&#x27;;</span><br><span class="line">const bb1 = bb.replaceAll(/[a-zA-Z]/g, &#x27;*&#x27;);</span><br><span class="line">console.log(bb1); //*******</span><br></pre></td></tr></table></figure>
+<p><strong>例:交换字符串中的两个单词</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(\s)表示出现空白就匹配，(\w)表示出现任意字符</span><br><span class="line">const re = /(\w+)\s(\w+)/;</span><br><span class="line">const str = &quot;John Smith&quot;;</span><br><span class="line">const newstr = str.replace(re, &quot;$2, $1&quot;);</span><br><span class="line">console.log(newstr);// Smith, John</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>search()执行正则表达式和string对象之间的一个搜索匹配。匹配成功返回索引位，失败返回-1。类似test().<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const paragraph1 = &#x27;The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?&#x27;;</span><br><span class="line">const regex = /[^\w\s]/g;</span><br><span class="line">console.log(paragraph1.search(regex));</span><br><span class="line">console.log(paragraph1.search(/[A-Z]/g)); // returns 0, </span><br><span class="line">console.log(paragraph1.search(/[!]/g)); // returns -1 </span><br><span class="line"></span><br><span class="line"> //字符串有没有数字</span><br><span class="line">const price = &quot;苹果3.5 香蕉2.4 西瓜3.6&quot;;</span><br><span class="line">const aa = price.replace(pt, &#x27;￥&#x27; + &#x27;$&amp;&#x27;); //$&amp;表示自己</span><br><span class="line">console.log(price.search(/\d/)); //返回索引位2</span><br><span class="line">console.log(aa.search(/￥\d/)); //返回索引位2</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>// isNaN(‘NaN’)  true  //它是个字符串，没有办法转为在数字,通过NaN转不了数字<br>// Number.isNaN(‘NaN’)  false //Number.isNaN(NaN)为true,其他都为false<br>5. 求和函数(剩余参数…:将参数收集起来构成数组)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function sum(...args) &#123;</span><br><span class="line">    // 将类数组转为数组的方法</span><br><span class="line">    //1. const args = [].slice.call(arguments)  //slice(什么也不传，复制原来的数组)</span><br><span class="line">    // 2.const args =[...arguments];  //扩展运算符</span><br><span class="line">    // 3.const args =Array.from(); </span><br><span class="line">    // 4.for遍历</span><br><span class="line">    // let result = 0;</span><br><span class="line">    // for(let i =0,len=args.length;i&lt;len;i++)&#123;</span><br><span class="line">    //     result += args[i];</span><br><span class="line">    // &#125;</span><br><span class="line">    // return result;</span><br><span class="line">    console.log(args);  //reduce(数组求和方法)</span><br><span class="line">    return args.reduce(function (p, c) &#123;</span><br><span class="line">        return p + c</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">sum(1,2,3) //Array(3) [ 1, 2, 3 ] //6</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/05/ES6/" data-id="ckrxsbjpm00016svj58tcbi28" data-title="ES6" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-幻灯片" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/wcmalley/2021/08/05/%E5%B9%BB%E7%81%AF%E7%89%87/" class="article-date">
+  <time class="dt-published" datetime="2021-08-04T16:40:12.000Z" itemprop="datePublished">2021-08-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/wcmalley/2021/08/05/%E5%B9%BB%E7%81%AF%E7%89%87/">幻灯片</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>代码块 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .ppt&#123;</span><br><span class="line">             width: 400px;</span><br><span class="line">             height: 300px;</span><br><span class="line">             border: 1px solid #000;</span><br><span class="line">             position: relative;</span><br><span class="line">             margin: 0 auto;</span><br><span class="line">             overflow: hidden;</span><br><span class="line">         &#125;</span><br><span class="line">         .pptcontent&#123;</span><br><span class="line">             width: 2000px;</span><br><span class="line">             outline: 1px solid #000;</span><br><span class="line">             position: absolute;</span><br><span class="line">             height: 300px;</span><br><span class="line">             display: flex;</span><br><span class="line">             left: -400px;</span><br><span class="line">            </span><br><span class="line">         &#125;</span><br><span class="line">         .pptcontent &gt; div&#123;</span><br><span class="line">             width: 400px;</span><br><span class="line">             height: 300px;</span><br><span class="line">             outline: 1px solid #000;</span><br><span class="line">             float: left;</span><br><span class="line">             text-align: center;</span><br><span class="line">             font-size: 150px;</span><br><span class="line">             line-height: 300px;</span><br><span class="line">            </span><br><span class="line">         &#125;</span><br><span class="line">         .pptcontent &gt; div:nth-child(1)&#123;</span><br><span class="line">             background: #00f;</span><br><span class="line">         &#125;</span><br><span class="line">         .pptcontent &gt; div:nth-child(2)&#123; </span><br><span class="line">             background: #f00;</span><br><span class="line">         &#125;</span><br><span class="line">         .pptcontent &gt; div:nth-child(3)&#123;</span><br><span class="line">             background: #0f0;</span><br><span class="line">         &#125;</span><br><span class="line">         .pptcontent &gt; div:nth-child(4)&#123;</span><br><span class="line">             background: #00f;</span><br><span class="line">         &#125;</span><br><span class="line">         .pptcontent &gt; div:nth-child(5)&#123;</span><br><span class="line">             background: #f00;</span><br><span class="line">         &#125;</span><br><span class="line">         .ctrl&#123;</span><br><span class="line">             position: relative;</span><br><span class="line">             width: 100%;</span><br><span class="line">             height: 100%;</span><br><span class="line">         &#125;</span><br><span class="line">         .ctrl &gt; div i&#123;</span><br><span class="line">             background:rgba(255, 255, 255, 0.5);</span><br><span class="line">             font-size: 3em;</span><br><span class="line">         &#125;</span><br><span class="line">          .ctrl .left&#123;</span><br><span class="line">             position: absolute;</span><br><span class="line">             top: 120px;</span><br><span class="line">         &#125;</span><br><span class="line">         .ctrl .right&#123;</span><br><span class="line">             position: absolute;</span><br><span class="line">             top: 120px;</span><br><span class="line">             right: 0;</span><br><span class="line">         &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">     &lt;div class=&quot;ppt&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;pptcontent&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;subppt&quot;&gt;3&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;subppt&quot;&gt;1&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;subppt&quot;&gt;2&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;subppt&quot;&gt;3&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;subppt&quot;&gt;1&lt;/div&gt;</span><br><span class="line">            &lt;!-- &lt;div class=&quot;subppt&quot;&gt;1&lt;/div&gt; --&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;ctrl&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;left&quot;&gt;&lt;i class=&quot;fa fa-chevron-left&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/div&gt;</span><br><span class="line">            &lt;div class=&quot;right&quot;&gt;&lt;i class=&quot;fa fa-chevron-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">     $(function () &#123;  </span><br><span class="line">            var index =1;</span><br><span class="line">            $(&#x27;.ctrl .left&#x27;).click(function () &#123;</span><br><span class="line">                index--;</span><br><span class="line">                var distance = -400 *index;</span><br><span class="line">                $(&#x27;.pptcontent&#x27;).animate(&#123;</span><br><span class="line">                    &#x27;left&#x27;:distance</span><br><span class="line">                &#125;,1000,function () &#123;</span><br><span class="line">                    if(index ===0)&#123;</span><br><span class="line">                        index = 3;</span><br><span class="line">                        $(&#x27;.pptcontent&#x27;).css(&#x27;left&#x27;,-1200)</span><br><span class="line">                    &#125;</span><br><span class="line">                    console.log(&#x27;动画完成&#x27;);</span><br><span class="line">                &#125;)</span><br><span class="line">                console.log(&#x27;上&#x27;);</span><br><span class="line">            &#125;)</span><br><span class="line">            $(&#x27;.ctrl .right&#x27;).click(function () &#123;</span><br><span class="line">                index++;</span><br><span class="line">                console.log(index);</span><br><span class="line">                var distance = -400 *index;</span><br><span class="line">                $(&#x27;.pptcontent&#x27;).animate(&#123;</span><br><span class="line">                    &#x27;left&#x27;:distance</span><br><span class="line">                &#125;,1000,function () &#123;</span><br><span class="line">                    if(index ===4)&#123;</span><br><span class="line">                        index = 1;</span><br><span class="line">                        $(&#x27;.pptcontent&#x27;).css(&#x27;left&#x27;,-400)</span><br><span class="line">                    &#125;</span><br><span class="line">                    console.log(&#x27;动画完成&#x27;);</span><br><span class="line">                &#125;)</span><br><span class="line">                console.log(&#x27;下&#x27;);</span><br><span class="line">            &#125;)</span><br><span class="line">  &#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/05/%E5%B9%BB%E7%81%AF%E7%89%87/" data-id="ckrxsbjpo00026svj0b6o5yck" data-title="幻灯片" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-手风琴" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/wcmalley/2021/08/05/%E6%89%8B%E9%A3%8E%E7%90%B4/" class="article-date">
+  <time class="dt-published" datetime="2021-08-04T16:32:27.000Z" itemprop="datePublished">2021-08-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/wcmalley/2021/08/05/%E6%89%8B%E9%A3%8E%E7%90%B4/">手风琴</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>代码块<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        .shoufengqing .item&#123;</span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            border: 1px solid #000;</span><br><span class="line">            font-size: 30px;</span><br><span class="line">            text-align: center;</span><br><span class="line">            line-height: 100px;</span><br><span class="line">        &#125;</span><br><span class="line">         .shoufengqing .active&#123;</span><br><span class="line">             width: 300px;</span><br><span class="line">             height: 200px;</span><br><span class="line">             border: 1px solid #000;</span><br><span class="line">             display: none;</span><br><span class="line">         &#125;</span><br><span class="line">         .shoufengqing .bb&#123;</span><br><span class="line">            display: block;</span><br><span class="line">         &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">     &lt;div class=&quot;shoufengqing&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;item&quot;&gt;one&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;active bb&quot;&gt;content&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;item&quot;&gt;two&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;active&quot;&gt;content&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;item&quot;&gt;three&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;active&quot;&gt;content&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;item&quot;&gt;four&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;active&quot;&gt;content&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $(function () &#123;  </span><br><span class="line">            // slideUp(function () &#123;&#125;)在执行动画的时候还可以执行函数</span><br><span class="line">            $(&#x27;.shoufengqing .item&#x27;).click(function () &#123;</span><br><span class="line">                 if( $(this).next().hasClass(&#x27;bb&#x27;))&#123;</span><br><span class="line">                   return </span><br><span class="line">                 &#125;</span><br><span class="line">                $(this).next().slideDown();</span><br><span class="line">                    $(&#x27;.shoufengqing .bb&#x27;).slideUp(function () &#123;</span><br><span class="line">                        $(this).removeClass(&#x27;bb&#x27;)</span><br><span class="line">                    &#125;);</span><br><span class="line">                $(this).next().addClass(&#x27;bb&#x27;)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)   </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/05/%E6%89%8B%E9%A3%8E%E7%90%B4/" data-id="ckrxsbjps00046svj25355d5e" data-title="手风琴" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-tab切换" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/wcmalley/2021/08/05/tab%E5%88%87%E6%8D%A2/" class="article-date">
+  <time class="dt-published" datetime="2021-08-04T16:18:49.000Z" itemprop="datePublished">2021-08-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/wcmalley/2021/08/05/tab%E5%88%87%E6%8D%A2/">下拉列表tab切换</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>jquey例二</li>
+<li>代码块<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">     .title&#123;</span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 50px;</span><br><span class="line">            border: 1px solid #000;</span><br><span class="line">            display: flex;</span><br><span class="line">        &#125;</span><br><span class="line">        .title a&#123;</span><br><span class="line">            text-decoration: none;</span><br><span class="line">            color: black;</span><br><span class="line">            width: 33%;</span><br><span class="line">            text-align: center;</span><br><span class="line">            line-height: 50px;</span><br><span class="line">            border-top: 1px solid transparent;</span><br><span class="line">            /* 解决晃动一开始就给添加 */</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        .content&#123;</span><br><span class="line">            height: 100px;</span><br><span class="line">            width: 300px;</span><br><span class="line">            border: 1px solid #000;</span><br><span class="line">            position: relative;</span><br><span class="line">        &#125;</span><br><span class="line">        .content div&#123;</span><br><span class="line">            position: absolute;</span><br><span class="line">            background: #fff;</span><br><span class="line">            display: none;</span><br><span class="line">        &#125;</span><br><span class="line">        .title .active&#123;</span><br><span class="line">            color: red;</span><br><span class="line">            border-top: 1px solid #f00;</span><br><span class="line">            font-weight: bold;</span><br><span class="line">        &#125;</span><br><span class="line">        .content .active&#123;</span><br><span class="line">            display: block;</span><br><span class="line">        &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;title&quot;&gt;</span><br><span class="line">            &lt;a data-id=&quot;xinwen&quot; class=&quot;active&quot; href=&quot;javascript:;&quot;&gt;要闻&lt;/a&gt;</span><br><span class="line">            &lt;a data-id=&quot;xian&quot; href=&quot;javascript:;&quot;&gt;西安要闻&lt;/a&gt;</span><br><span class="line">            &lt;a data-id=&quot;junshi&quot; href=&quot;javascript:;&quot;&gt;军事|航空&lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;content&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;active&quot; id=&quot;xinwen&quot;&gt;要闻内容&lt;/div&gt;</span><br><span class="line">            &lt;div id=&quot;xian&quot;&gt;西安要闻内容&lt;/div&gt;</span><br><span class="line">            &lt;div id=&quot;junshi&quot;&gt;军事航空内容&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">        $(function () &#123;</span><br><span class="line">            $(&#x27;.title a&#x27;).hover(function () &#123;</span><br><span class="line">                //用索引</span><br><span class="line">                var index = $(this).index();</span><br><span class="line">                console.log(index);</span><br><span class="line">                //我兄弟都移除这个类</span><br><span class="line">               $(this).siblings().removeClass(&#x27;active&#x27;);</span><br><span class="line">               $(this).addClass(&#x27;active&#x27;);</span><br><span class="line"></span><br><span class="line">               var id = $(this).attr(&#x27;data-id&#x27;);</span><br><span class="line">               console.log(id);</span><br><span class="line">            //    $(this).parent().next().children().hide()</span><br><span class="line">            //    $(this).parent().next().children().eq(index).show()</span><br><span class="line">            //终极版</span><br><span class="line">               $(this).closest(&#x27;.box&#x27;).find(&#x27;.content&#x27;).children().hide();</span><br><span class="line">               $(this).closest(&#x27;.box&#x27;).find(&#x27;.content&#x27;).children().eq(index).show();</span><br><span class="line">               </span><br><span class="line">            &#125;,function () &#123;</span><br><span class="line">           console.log(&quot;出来&quot;)</span><br><span class="line">            &#125;)</span><br><span class="line">          </span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/05/tab%E5%88%87%E6%8D%A2/" data-id="ckrxsbjpg00006svj2irm9o8s" data-title="下拉列表tab切换" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-下拉列表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/wcmalley/2021/08/05/%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8/" class="article-date">
+  <time class="dt-published" datetime="2021-08-04T16:04:57.000Z" itemprop="datePublished">2021-08-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/wcmalley/2021/08/05/%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8/">下拉列表</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>首先引用jQuery库</strong></p>
+<ul>
+<li>代码块<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">    &lt;style&gt;</span><br><span class="line">        body&#123;</span><br><span class="line">            background: #88baff;</span><br><span class="line">        &#125;</span><br><span class="line">        .mainmenu&#123;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            display: flex;</span><br><span class="line">            list-style: none;</span><br><span class="line">            background: #fff;</span><br><span class="line">            float: left;</span><br><span class="line">            padding:  10px;</span><br><span class="line">            border-radius:40px ;</span><br><span class="line">            cursor: pointer;</span><br><span class="line">        &#125;</span><br><span class="line">        .mainmenu li&#123;</span><br><span class="line">            border: 1px solid #aaa;</span><br><span class="line">            border-radius: 20px;</span><br><span class="line">            /* padding:  0 10px; */</span><br><span class="line">            height: 20px;</span><br><span class="line">            width: 80px;</span><br><span class="line">        &#125;</span><br><span class="line">       .submenu&#123;</span><br><span class="line">           box-sizing: border-box;</span><br><span class="line">           padding: 0;</span><br><span class="line">           list-style: none;</span><br><span class="line">           display: none;</span><br><span class="line">       &#125;</span><br><span class="line">       .submenu li&#123;</span><br><span class="line">           height: 20px;</span><br><span class="line">           width: 100%;</span><br><span class="line">           text-align: center;</span><br><span class="line">       &#125;</span><br><span class="line">       .active&#123;</span><br><span class="line">           background: #9ccc31;</span><br><span class="line">       &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt;下拉列表&lt;/h1&gt;</span><br><span class="line">    &lt;ul class=&quot;mainmenu&quot;&gt;</span><br><span class="line">        &lt;li&gt;产品分类</span><br><span class="line">            &lt;ul class=&quot;submenu&quot;&gt;</span><br><span class="line">                &lt;li&gt;手机&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;平板&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;笔记本&lt;/li&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">        &lt;li&gt;我们的服务</span><br><span class="line">            &lt;ul class=&quot;submenu&quot;&gt;</span><br><span class="line">                &lt;li&gt;手机&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;平板&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;笔记本&lt;/li&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">        &lt;li&gt;招兵买马</span><br><span class="line">            &lt;ul class=&quot;submenu&quot;&gt;</span><br><span class="line">                &lt;li&gt;手机&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;平板&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;笔记本&lt;/li&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">        &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    $(function () &#123; </span><br><span class="line">        $(&#x27;.mainmenu &gt; li&#x27;).hover(function()&#123;</span><br><span class="line">            $(this).addClass(&#x27;active&#x27;).find(&#x27;.submenu&#x27;).show();</span><br><span class="line">        &#125;,function()&#123;</span><br><span class="line">            $(this).removeClass(&#x27;active&#x27;).find(&#x27;.submenu&#x27;).hide();</span><br><span class="line">            $(&#x27;.submenu &gt;li&#x27;).removeClass(&#x27;active&#x27;)</span><br><span class="line">        &#125;)</span><br><span class="line">         $(&#x27;.submenu &gt; li&#x27;).hover(function()&#123;</span><br><span class="line">            $(this).addClass(&#x27;active&#x27;);</span><br><span class="line">        &#125;,function ()&#123;</span><br><span class="line">            $(this).removeClass(&#x27;active&#x27;);</span><br><span class="line">        &#125;)</span><br><span class="line">     &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/05/%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8/" data-id="ckrxsbjpr00036svjcph7a1t7" data-title="下拉列表" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-三级联动" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/wcmalley/2021/07/24/%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8/" class="article-date">
@@ -98,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/24/%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8/" data-id="ckrho5r5600009cvj1laz50e8" data-title="三级联动" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/07/24/%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8/" data-id="ckrhnxrqk000140vjdj4iebid" data-title="三级联动" class="article-share-link">Share</a>
       
       
       
@@ -137,7 +369,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/24/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/" data-id="ckrho5r5c00019cvjd0q2dzpr" data-title="上传图片" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/07/24/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/" data-id="ckrhnnq3y000040vj1qwgg9o0" data-title="上传图片" class="article-share-link">Share</a>
       
       
       
@@ -321,233 +553,6 @@
 
 
   
-    <article id="post-错误处理与调试常见错误类型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/wcmalley/2021/07/20/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B8%8E%E8%B0%83%E8%AF%95%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E7%B1%BB%E5%9E%8B/" class="article-date">
-  <time class="dt-published" datetime="2021-07-20T09:23:07.000Z" itemprop="datePublished">2021-07-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/wcmalley/2021/07/20/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B8%8E%E8%B0%83%E8%AF%95%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E7%B1%BB%E5%9E%8B/">错误处理与调试常见错误类型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">     try&#123;</span><br><span class="line">            console.log(&#x27;可能出错的代码&#x27;);</span><br><span class="line">        &#125;catch(error)&#123;</span><br><span class="line">            console.log(&#x27;有点错&#x27;);</span><br><span class="line">        &#125;finally&#123;</span><br><span class="line">           console.log(&#x27;不管成功失败都要执行 &#x27;);</span><br><span class="line">        &#125;</span><br><span class="line">        throw new Error(&#x27;手动抛出错误,下面代码不会执行&#x27;);</span><br><span class="line">        console.log(&#x27;c&#x27;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>代码常见的错误pc端</strong></p>
-<ol>
-<li>ReferenceError —-引用错误</li>
-<li>SyntaxError ——-缺少符号导致错误</li>
-<li>TypeError  ——–类型错误</li>
-<li>直接在控制台调试</li>
-</ol>
-<p><strong>移动端出现错误解决</strong></p>
-<ol>
-<li>用alert(JSON.Stringify(‘转出json字符串’););</li>
-<li>以字符串输出界面。<div id="error"></div>
-<img src="https://tva2.sinaimg.cn/large/7206d247ly1gsnjxnz8wwj20bj05tjsm.jpg" alt="error" width="415" data-width="415" data-height="209"></li>
-</ol>
-<h3 id="study-json"><a href="#study-json" class="headerlink" title="study json"></a>study json</h3><p><strong>json语法</strong></p>
-<ol>
-<li>简单值： Null 、 Boolean 、 Number 和 String ,不支持undefined。<br>对象、数组。</li>
-<li>在json中属性和值都得用双引号</li>
-<li>json两中方法：JSON.stringify(转为字符串化)，<br>JSON.parse(解析反转是俩对象，不是同一个对象),</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/20/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B8%8E%E8%B0%83%E8%AF%95%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E7%B1%BB%E5%9E%8B/" data-id="ckrbw71m80002a0vjfe5k8014" data-title="错误处理与调试常见错误类型" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-获取验证码页面" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/wcmalley/2021/07/20/%E8%8E%B7%E5%8F%96%E9%AA%8C%E8%AF%81%E7%A0%81%E9%A1%B5%E9%9D%A2/" class="article-date">
-  <time class="dt-published" datetime="2021-07-20T09:17:23.000Z" itemprop="datePublished">2021-07-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/wcmalley/2021/07/20/%E8%8E%B7%E5%8F%96%E9%AA%8C%E8%AF%81%E7%A0%81%E9%A1%B5%E9%9D%A2/">获取验证码页面</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>style+html+js代码块<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line">    &lt;style&gt;</span><br><span class="line">        .loading &#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            position: fixed;</span><br><span class="line">            left: 50%;</span><br><span class="line">            top: 50%;</span><br><span class="line">            /* border: 1px solid #aaa; */</span><br><span class="line">            transform: translate(-50px, -50px);</span><br><span class="line">            margin-top: -100px;</span><br><span class="line">            margin-left: -100px;</span><br><span class="line">            animation: rotateIt linear infinite 3s;</span><br><span class="line">            display: none;</span><br><span class="line">        &#125;</span><br><span class="line">        @keyframes rotateIt&#123;</span><br><span class="line">            0%&#123;</span><br><span class="line">                transform: rotate(0);</span><br><span class="line">            &#125;</span><br><span class="line">            100%&#123;</span><br><span class="line">                transform: rotate(360deg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        .log-item &#123;</span><br><span class="line">            width:30px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            /* background: #000; */</span><br><span class="line">            position: absolute; </span><br><span class="line">            left: 50%;</span><br><span class="line">            margin-left: -15px;</span><br><span class="line">            border-radius: 100%;</span><br><span class="line">            transform-origin: bottom;</span><br><span class="line">            transform: rotate(calc(var(--i) * 30deg));</span><br><span class="line">        &#125;</span><br><span class="line">        .log-item::before &#123;</span><br><span class="line">            content: &#x27;&#x27;;</span><br><span class="line">            display: block;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 60px;</span><br><span class="line">            background: rgba(0,0,0,calc(var(--i)/12));</span><br><span class="line">            border-radius: 100%;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;loading&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;log-item&quot; style=&quot;--i:1&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;log-item&quot; style=&quot;--i:2&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;log-item&quot; style=&quot;--i:3&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;log-item&quot; style=&quot;--i:4&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;log-item&quot; style=&quot;--i:5&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;log-item&quot; style=&quot;--i:6&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;log-item&quot; style=&quot;--i:7&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;log-item&quot; style=&quot;--i:8&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;log-item&quot; style=&quot;--i:9&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;log-item&quot; style=&quot;--i:10&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;log-item&quot; style=&quot;--i:11&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;log-item&quot; style=&quot;--i:12&quot;&gt;&lt;/div&gt;</span><br><span class="line">       </span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;form id=&quot;loginForm&quot; action=&quot;/login&quot; enctype=&quot;multipart/form-data&quot; method=&quot;POST&quot;&gt;</span><br><span class="line">        &lt;!-- 多分布  multipart/form-data文件用--&gt;</span><br><span class="line">        &lt;!-- 标准表单带name，ajxo不带；标准表单提交get --&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; name=&quot;userphone&quot; id=&quot;userphone&quot; placeholder=&quot;请输入手机号&quot;&gt;&lt;br&gt;</span><br><span class="line">        &lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot; placeholder=&quot;请输入密码&quot;&gt;&lt;br&gt;</span><br><span class="line">        &lt;!-- &lt;input type=&quot;file&quot; name=&quot;userhead&quot; id=&quot;&quot;&gt;&lt;br&gt; --&gt;</span><br><span class="line">        &lt;textarea name=&quot;&quot; id=&quot;intro&quot;&gt;自我介绍&lt;/textarea&gt;&lt;br&gt;</span><br><span class="line">        &lt;p&gt;</span><br><span class="line">            &lt;!-- 11位数字 --&gt;</span><br><span class="line">            &lt;input type=&quot;text&quot; name=&quot;vcode&quot; id=&quot;vcode&quot;&gt;</span><br><span class="line">            &lt;input type=&quot;button&quot; value=&quot;验证码&quot; id=&quot;getcode&quot;&gt;&lt;br&gt;</span><br><span class="line">        &lt;/p&gt;</span><br><span class="line">        &lt;!-- &lt;button&gt;登录&lt;/button&gt; --&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">    &lt;input type=&quot;button&quot; value=&quot;登录&quot; id=&quot;submit&quot;&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var submit = document.querySelector(&#x27;#submit&#x27;);</span><br><span class="line">        var userphone = document.querySelector(&#x27;#userphone&#x27;);</span><br><span class="line">        var password = document.querySelector(&#x27;#password&#x27;);</span><br><span class="line">        var intro = document.querySelector(&#x27;#intro&#x27;);</span><br><span class="line">        var getcode = document.querySelector(&#x27;#getcode&#x27;);</span><br><span class="line">        var vcode =document.querySelector(&#x27;#vcode&#x27;);</span><br><span class="line">        var loading =document.querySelector(&#x27;.loading&#x27;);</span><br><span class="line">        getcode.addEventListener(&#x27;click&#x27;,function()&#123;</span><br><span class="line">            var phone = userphone.value;</span><br><span class="line">            var pattern = /^\d&#123;11&#125;$/;</span><br><span class="line">            if(pattern.test(phone))&#123;</span><br><span class="line">                console.log(&#x27;获取验证码&#x27;);</span><br><span class="line">                var code = Math.floor(Math.random()*(8999)+1000);</span><br><span class="line">                loading.style.display =&#x27;block&#x27;</span><br><span class="line">                setTimeout(function() &#123;</span><br><span class="line">                    loading.style.display =&#x27;none&#x27;</span><br><span class="line">                    vcode.value = code;</span><br><span class="line">                    </span><br><span class="line">                &#125;, 5000);</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                alert(&#x27;请输入正确手机号&#x27;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        submit.addEventListener(&#x27;click&#x27;, function () &#123;</span><br><span class="line">            // document.querySelector(&#x27;#loginForm&#x27;).submit();</span><br><span class="line">            // document.querySelector(&#x27;#loginForm&#x27;).reset();</span><br><span class="line">            var name1 = userphone.value;</span><br><span class="line">            var password1 = password.value;</span><br><span class="line">            var vcode1 = vcode.value;</span><br><span class="line">            if(name1 &amp;&amp; password1 &amp;&amp; vcode1)&#123;</span><br><span class="line">                alert(&#x27;注册成功&#x27;)</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                alert(&#x27;请完善信息&#x27;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/20/%E8%8E%B7%E5%8F%96%E9%AA%8C%E8%AF%81%E7%A0%81%E9%A1%B5%E9%9D%A2/" data-id="ckrbw71m30001a0vjfzewdf5q" data-title="获取验证码页面" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-3d相册" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/wcmalley/2021/07/20/3d%E7%9B%B8%E5%86%8C/" class="article-date">
-  <time class="dt-published" datetime="2021-07-20T09:08:42.000Z" itemprop="datePublished">2021-07-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/wcmalley/2021/07/20/3d%E7%9B%B8%E5%86%8C/">3d相册</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>style<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">         body &#123;</span><br><span class="line">            height: 100vh;</span><br><span class="line">            display: flex;</span><br><span class="line">            justify-content: center;</span><br><span class="line">            align-items: center;</span><br><span class="line">            background-image: url(https://tva2.sinaimg.cn/large/7206d247ly1gsi2f3jamrj20dw08pgmf.jpg);</span><br><span class="line">            background-size: cover;</span><br><span class="line">        &#125;</span><br><span class="line">        .container &#123;</span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 300px;</span><br><span class="line">            /* border: 1px solid #000; */</span><br><span class="line">            position: relative;</span><br><span class="line">            /* 动画 */</span><br><span class="line">            transform-style: preserve-3d;</span><br><span class="line">            transform: rotateX(-20deg) rotateY(-20deg);</span><br><span class="line">            animation: rotate 10s linear alternate infinite;</span><br><span class="line">        &#125;</span><br><span class="line">        .container .item &#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 100%;</span><br><span class="line">            position: absolute;</span><br><span class="line">            opacity: 0.7;</span><br><span class="line">        &#125;</span><br><span class="line">        .container .front&#123;</span><br><span class="line">            transform: translateZ(150px);</span><br><span class="line">        &#125;</span><br><span class="line">        .container .item:nth-child(6) &#123;</span><br><span class="line">            transform: rotateY(180deg) translateZ(150px);</span><br><span class="line">        &#125;</span><br><span class="line">        .container .item:nth-child(2) &#123;</span><br><span class="line">            transform: rotateY(-90deg) translateZ(150px);</span><br><span class="line">        &#125;</span><br><span class="line">        .container .item:nth-child(4) &#123;</span><br><span class="line">            transform: rotateY(90deg) translateZ(150px);</span><br><span class="line">        &#125;</span><br><span class="line">        .container .item:nth-child(3) &#123;</span><br><span class="line">            transform: rotateX(90deg) translateZ(150px);</span><br><span class="line">        &#125;</span><br><span class="line">        .container .item:nth-child(5) &#123;</span><br><span class="line">            transform: rotateX(-90deg) translateZ(150px);</span><br><span class="line">        &#125;</span><br><span class="line">        /* 旋转动画 */</span><br><span class="line">        @keyframes rotate &#123;</span><br><span class="line">            0%,5% &#123;</span><br><span class="line">                transform: rotateY(90deg);</span><br><span class="line">            &#125;</span><br><span class="line">            20%, 25% &#123;</span><br><span class="line">                transform: rotateY(180deg);</span><br><span class="line">            &#125;</span><br><span class="line">            40%,45% &#123;</span><br><span class="line">                transform: rotateY(270deg);</span><br><span class="line">            &#125;</span><br><span class="line">            60%,65% &#123;</span><br><span class="line">                transform: rotateX(-90deg);</span><br><span class="line">            &#125;</span><br><span class="line">            80%,85% &#123;</span><br><span class="line">                transform: rotateX(0);</span><br><span class="line">            &#125;</span><br><span class="line">            95%, 100% &#123;</span><br><span class="line">                transform: rotateX(90deg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure></li>
-<li>html<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;item front&quot;&gt; &lt;img src=&quot;https://tva1.sinaimg.cn/large/7206d247ly1gsi0p6bg0sj20b40b4mxr.jpg&quot;</span><br><span class="line">                width=&quot;100%&quot; alt=&quot;&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;item back&quot;&gt; &lt;img src=&quot;https://tva1.sinaimg.cn/large/7206d247ly1gsi0pfgipdj20b40b4t99.jpg&quot;</span><br><span class="line">                width=&quot;100%&quot; alt=&quot;&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;item left&quot;&gt; &lt;img src=&quot;https://tvax3.sinaimg.cn/large/7206d247ly1gsi0p9kyhtj20b40b4dgc.jpg&quot;</span><br><span class="line">                width=&quot;100%&quot; alt=&quot;&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;item right&quot;&gt; &lt;img src=&quot;https://tva4.sinaimg.cn/large/7206d247ly1gsi0p1pdw5j20b40b4wf7.jpg&quot;</span><br><span class="line">                width=&quot;100%&quot; alt=&quot;&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;item top&quot;&gt; &lt;img src=&quot;https://tvax2.sinaimg.cn/large/7206d247ly1gsi0pcoaglj20b40b4q3l.jpg&quot;</span><br><span class="line">                width=&quot;100%&quot; alt=&quot;&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;item bottom&quot;&gt; &lt;img src=&quot;https://tvax4.sinaimg.cn/large/7206d247ly1gsi2bd0dvqj20b40b4gm2.jpg&quot;</span><br><span class="line">                width=&quot;100%&quot; alt=&quot;&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/20/3d%E7%9B%B8%E5%86%8C/" data-id="ckrbw71lw0000a0vj6sz661pm" data-title="3d相册" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-查询价格" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/wcmalley/2021/07/15/%E6%9F%A5%E8%AF%A2%E4%BB%B7%E6%A0%BC/" class="article-date">
-  <time class="dt-published" datetime="2021-07-15T03:11:31.000Z" itemprop="datePublished">2021-07-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/wcmalley/2021/07/15/%E6%9F%A5%E8%AF%A2%E4%BB%B7%E6%A0%BC/">查询价格</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>style<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        *&#123;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">        &#125;</span><br><span class="line">        input&#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">        &#125;</span><br><span class="line">        ul&#123;</span><br><span class="line">            border: 1px solid #aaa;</span><br><span class="line">            width: 200px;</span><br><span class="line">            padding: 0;</span><br><span class="line">        &#125;</span><br><span class="line">        li&#123;</span><br><span class="line">            list-style: none;</span><br><span class="line">        &#125;</span><br><span class="line">        li &gt;span:nth-child(2)&#123;</span><br><span class="line">            float: right;</span><br><span class="line">            padding: 0 10px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure></li>
-<li>HTML+js<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h3&gt;查询水果价格&lt;/h3&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; name=&quot;&quot; id=&quot;keyword&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;result&quot;&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">           &lt;li&gt;暂无查询结果&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var fruits = [</span><br><span class="line">            &#123;</span><br><span class="line">                name:&#x27;apple&#x27;,</span><br><span class="line">                price:&#x27;$5&#x27;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                name:&#x27;grreenapple&#x27;,</span><br><span class="line">                price:&#x27;$3&#x27;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                name:&#x27;redapple&#x27;,</span><br><span class="line">                price:&#x27;$6&#x27;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                name:&#x27;banana&#x27;,</span><br><span class="line">                price:&#x27;$3&#x27;</span><br><span class="line">            &#125;,</span><br><span class="line">        ]</span><br><span class="line">        var keyword = document.querySelector(&#x27;#keyword&#x27;);</span><br><span class="line">        keyword.addEventListener(&#x27;keyup&#x27;,function()&#123;</span><br><span class="line">            console.log(&#x27;键盘弹起&#x27;);</span><br><span class="line">            var word = this.value.trim();</span><br><span class="line">            console.log(word);</span><br><span class="line">            var flist = fruits.filter(fruit =&gt; fruit.name.indexOf(word) !== -1)</span><br><span class="line">            console.log(flist);</span><br><span class="line">            if(flist.length &gt;0)&#123;</span><br><span class="line">                var html =&#x27;&#x27;;</span><br><span class="line">                flist.forEach(function(fruit) &#123;</span><br><span class="line">                    html += &#x27;&lt;li&gt;&#x27;+</span><br><span class="line">                    &#x27;&lt;span&gt;&#x27;+fruit.name+&#x27;&lt;/span&gt; &lt;span class=&quot;price&quot;&gt;&#x27;+fruit.price+&#x27;&lt;/span&gt;&#x27;+</span><br><span class="line">                    &#x27;&lt;/li&gt;&#x27;</span><br><span class="line">                &#125;);</span><br><span class="line">                console.log(html);</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                html = &#x27;&lt;li&gt;暂无查询结果&lt;/li&gt;&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">            var resultul = document.querySelector(&#x27;.result &gt; ul&#x27;);</span><br><span class="line">            resultul.innerHTML =html;  </span><br><span class="line">        &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/15/%E6%9F%A5%E8%AF%A2%E4%BB%B7%E6%A0%BC/" data-id="ckr4dp3w50005ycvj9ika7pxl" data-title="查询价格" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-自定义菜单" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/wcmalley/2021/07/15/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95/" class="article-date">
-  <time class="dt-published" datetime="2021-07-15T02:58:44.000Z" itemprop="datePublished">2021-07-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/wcmalley/2021/07/15/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95/">自定义菜单</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><a target="_blank" rel="noopener" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">icon连接</a></p>
-<ul>
-<li>style<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        body&#123;</span><br><span class="line">            min-height: 100vh;</span><br><span class="line">        &#125;</span><br><span class="line">        .menu&#123;</span><br><span class="line">            width: 80px;</span><br><span class="line">            /* height: 100px; */</span><br><span class="line">            border: 1px solid #000;</span><br><span class="line">            display: none;</span><br><span class="line">            position: fixed;</span><br><span class="line">        &#125;</span><br><span class="line">        .menu ul&#123;</span><br><span class="line">            margin: 0;</span><br><span class="line">            padding: 0  10px;</span><br><span class="line">        &#125;</span><br><span class="line">        .menu li&#123;</span><br><span class="line">            list-style: none;</span><br><span class="line">        &#125;</span><br><span class="line">        .menu li +li &#123;</span><br><span class="line">            border-top: 1px dashed #000;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure></li>
-<li>html<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;menu&quot;&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            &lt;li&gt;&lt;i class=&quot;fa fa-folder&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 打开&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;&lt;i class=&quot;fa fa-file&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 新建&lt;/li&gt;</span><br><span class="line">            &lt;li&gt;&lt;i class=&quot;fa fa-floppy-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; 保存&lt;/li&gt;</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
-<li>js<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        var menu = document.querySelector(&#x27;.menu&#x27;);</span><br><span class="line">        document.body.addEventListener(&#x27;contextmenu&#x27;,function(event)&#123;</span><br><span class="line">            event.preventDefault();</span><br><span class="line">            console.log(event);</span><br><span class="line">            var x = event.clientX;</span><br><span class="line">            var y = event.clientY;</span><br><span class="line">            menu.style.left = x + &#x27;px&#x27;;</span><br><span class="line">            menu.style.top= y + &#x27;px&#x27;;</span><br><span class="line">            menu.style.display = &#x27;block&#x27;;</span><br><span class="line">        &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/15/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95/" data-id="ckr4dp3w70006ycvj0ma5gnp6" data-title="自定义菜单" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -571,7 +576,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/wcmalley/archives/2021/07/">July 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/wcmalley/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/wcmalley/archives/2021/07/">July 2021</a></li></ul>
     </div>
   </div>
 
@@ -584,23 +589,23 @@
       <ul>
         
           <li>
-            <a href="/wcmalley/2021/07/24/%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8/">三级联动</a>
+            <a href="/wcmalley/2021/08/05/ES6/">ES6</a>
           </li>
         
           <li>
-            <a href="/wcmalley/2021/07/24/%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/">上传图片</a>
+            <a href="/wcmalley/2021/08/05/%E5%B9%BB%E7%81%AF%E7%89%87/">幻灯片</a>
           </li>
         
           <li>
-            <a href="/wcmalley/2021/07/24/FielReader/">FielReader</a>
+            <a href="/wcmalley/2021/08/05/%E6%89%8B%E9%A3%8E%E7%90%B4/">手风琴</a>
           </li>
         
           <li>
-            <a href="/wcmalley/2021/07/24/cookiesLocalSession/">cookiesLocalSession</a>
+            <a href="/wcmalley/2021/08/05/tab%E5%88%87%E6%8D%A2/">下拉列表tab切换</a>
           </li>
         
           <li>
-            <a href="/wcmalley/2021/07/20/studyAjax/">studyAjax</a>
+            <a href="/wcmalley/2021/08/05/%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8/">下拉列表</a>
           </li>
         
       </ul>
