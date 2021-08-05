@@ -71,6 +71,178 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-FielReader" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/wcmalley/2021/07/24/FielReader/" class="article-date">
+  <time class="dt-published" datetime="2021-07-24T08:32:52.000Z" itemprop="datePublished">2021-07-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/wcmalley/2021/07/24/FielReader/">FielReader</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="一、Filse提供（h5新增FileReader类型）"><a href="#一、Filse提供（h5新增FileReader类型）" class="headerlink" title="一、Filse提供（h5新增FileReader类型）"></a>一、Filse提供（h5新增FileReader类型）</h2><ol>
+<li>FileReader类型：是一种异步文件读取机制，可以读图片、普通文件word、Excel、等预览效果，</li>
+<li>FileReader 有三个事件progress(更新)：每50毫秒触发一次、error(错误):这个属性是一个对象只有code一个属性(1,2,3,4,5)、load(完成):加载完成后触发，如遇到错误不会触发<br>最主要掌握readAsDataURL(file):读取文件将内容的数据url保存在result属性中。可以本地预览，还可以进行裁切，//beas64浏览器可以识别。</li>
+</ol>
+<ul>
+<li>示例<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        .box&#123;</span><br><span class="line">            width: 200px;</span><br><span class="line">            height: 200px;</span><br><span class="line">            border: 1px solid #000 ;</span><br><span class="line">        &#125;</span><br><span class="line">        .box img&#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 100%;</span><br><span class="line">        &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">        &lt;img src=&quot;&quot; alt=&quot;&quot; id=&quot;prview&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;input type=&quot;file&quot; id=&quot;avastar&quot;&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        var avastar = document.querySelector(&#x27;#avastar&#x27;);</span><br><span class="line">        var prview = document.querySelector(&#x27;#prview&#x27;);</span><br><span class="line">        avastar.addEventListener(&#x27;change&#x27;, function()&#123;</span><br><span class="line">            var reader = new FileReader(); //1.先构造一个实例</span><br><span class="line">            reader.addEventListener(&#x27;load&#x27;,function()&#123; //3.读成功后监听它的load事件</span><br><span class="line">                console.log(reader.result);</span><br><span class="line">                prview.setAttribute(&#x27;src&#x27;,reader.result)</span><br><span class="line">            &#125;)</span><br><span class="line">            reader.readAsDataURL(avastar.files[0]);//2.读取图片</span><br><span class="line">        &#125;) </span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/24/FielReader/" data-id="ckrhncrdf0000z0vj72ecelnw" data-title="FielReader" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-cookiesLocalSession" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/wcmalley/2021/07/24/cookiesLocalSession/" class="article-date">
+  <time class="dt-published" datetime="2021-07-24T07:41:28.000Z" itemprop="datePublished">2021-07-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/wcmalley/2021/07/24/cookiesLocalSession/">cookiesLocalSession</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="一、Cookie和localStorage、sessionStorage区别？"><a href="#一、Cookie和localStorage、sessionStorage区别？" class="headerlink" title="一、Cookie和localStorage、sessionStorage区别？"></a>一、Cookie和localStorage、sessionStorage区别？</h2><ol>
+<li>Cookie：最初用在客户端存储回话信息，后来要求服务器在响应http请求时，通过发送set-cookieHTTP包含头部会话信息，简单来说（cookie是服务器端发给客户端的文本文件；目的是用于辨别用户身份）。构成包含name、value、domain(域名)、path、secure安全标准(选中为https，默认http无状态协议)、(expire)过期时间;还包含sessionStorage:回话信息，<img src="https://tva2.sinaimg.cn/large/7206d247ly1gss38wqr0fj21dx0mywha.jpg" alt="QQ图片20210723162059" width="1797" data-width="1797" data-height="826"></li>
+</ol>
+<p>*cookie服务器通过set-cookie给前段application发送的信息</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42246997/article/details/102796076">https://blog.csdn.net/weixin_42246997/article/details/102796076</a></p>
+</blockquote>
+<ol start="2">
+<li>localStorage、sessionStorage：<br>local Storage.setItem(‘myname’,’张三’)，自己手动设定（）<br>local Storage.getItem(‘获取’)<br>local Storage.clear(‘清空所有’)<br>localStorage.remove(‘移除单个’)<br>它两只有（name和value）sessionStorage用法和localStorage用法一样，唯一区别，localStorage.不手动调remove是不会移除的。而sessionStorage（相对放一些隐私的信息）一旦关闭浏览器数据就丢失了。仅在客户端（即浏览器）中保存，不参与和服务器的通信。如果要使用使用前段加密。</li>
+</ol>
+<hr>
+<p>存储数据前：利用JSON.stringify将对象转换成字符串<br>获取数据后：利用JSON.parse将字符串转换成对象</p>
+<h2 id="跨页面传值的几种简单方式"><a href="#跨页面传值的几种简单方式" class="headerlink" title="跨页面传值的几种简单方式?"></a>跨页面传值的几种简单方式?</h2><ol>
+<li>通过URL传值:location.href=”跨页面1-2.html?age=18&amp;gender=man”;</li>
+<li>使用h5的localStorage，或者sessionStorage存储对象类型</li>
+<li>cookie<h2 id="二、什么是回流，什么是重绘，有什么区别？"><a href="#二、什么是回流，什么是重绘，有什么区别？" class="headerlink" title="二、什么是回流，什么是重绘，有什么区别？"></a>二、什么是回流，什么是重绘，有什么区别？</h2>答：当render tree中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建。这就称为回流(reflow)。<br>当render tree中的一些元素需要更新属性，而这些属性只是影响元素的外观，风格，而不会影响布局的，比如background-color。则就叫称为重绘(repaint)。<br>区别：<br>回流必将引起重绘，而重绘不一定会引起回流。比如：只有颜色改变的时候就只会发生重绘而不会引起回流</li>
+</ol>
+<h2 id="三、引发跨域问题？"><a href="#三、引发跨域问题？" class="headerlink" title="三、引发跨域问题？"></a>三、引发跨域问题？</h2><p>答：端口号不一致、协议不一致、域名不一致（ip）</p>
+<h2 id="四-解决跨域？"><a href="#四-解决跨域？" class="headerlink" title="四.解决跨域？"></a>四.解决跨域？</h2><p>答：(1)<em>官方（服务器配合）：Accpet -Contorl-allow-Origin:</em>(任何人都可以访问)中间件<br>*前端解决用：script脚本：img<br><em>埋点：<br>(2).jsonp:利用javascript script脚本的src（指向后端地址）的不受域的限制。（需要后台配合）；</em>代理.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/24/cookiesLocalSession/" data-id="ckrhncrdl0001z0vj5s2y5sew" data-title="cookiesLocalSession" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-studyAjax" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/wcmalley/2021/07/20/studyAjax/" class="article-date">
+  <time class="dt-published" datetime="2021-07-20T12:38:05.000Z" itemprop="datePublished">2021-07-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/wcmalley/2021/07/20/studyAjax/">studyAjax</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>XHR基本步骤<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var xhr = new XMLHttpRequest(); //1.初始化一个xhr实例</span><br><span class="line">xhr.open(&quot;get&quot;, &quot;http://localhost:3000/books&quot;, true); //open方法 只是配置 并没有真正发起请求</span><br><span class="line">//2.配置请求的信息 第一个参数(method)方法发送的方式，第二个参数URL请求的地址，第三个参数，同步（ture）还是异步默认FALSE，</span><br><span class="line">xhr.send(null); //3.send() 方法接收一个参数，即要作为请求主体发送的数据。没有null</span><br></pre></td></tr></table></figure></li>
+<li>method方法<ol>
+<li>get           查询数据，url带着查询参数</li>
+<li>post           新增数据,数据放在request body不在URL中</li>
+<li>put           更新数据,全部更新</li>
+<li>patch(打补丁)    更新数据,局部更新</li>
+<li>delete       更新数据  全部更新</li>
+<li>head       获取数据的信息,不要数据内容</li>
+<li>option       测试服务器支持那些方法</li>
+</ol>
+</li>
+</ul>
+<p><strong>接口规范</strong></p>
+<ul>
+<li>resetful 风格的接口<ol>
+<li>get   /api/books：获取所有书籍数据</li>
+<li>get   /api/books/007  获取id为007的一本书</li>
+<li>get   /api/books/？pagenum=1&amp;pagesize = 10  获取第一页十条数据</li>
+<li>post  /api/books   增加</li>
+<li>post  /api/books/007  修改id为007的这本书 全量更新 用数据完全覆盖后台数据，只保留id</li>
+<li>patct   /api/books/007  修改id为007的这本书 局部更新 用数据修改后台数据，如果有新增， 增加</li>
+<li>delete   /api/books/007  删除id为007的这本书</li>
+</ol>
+</li>
+</ul>
+<p><strong>辅助模拟服务器</strong></p>
+<ol>
+<li>安装 npm install -g json-server</li>
+<li>启动服务器json-server -w books.json</li>
+<li>延时操作 json-server -w -d 3000 books.json</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/07/20/studyAjax/" data-id="ckrc585ah00007gvj884va0zy" data-title="studyAjax" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-错误处理与调试常见错误类型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/wcmalley/2021/07/20/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B8%8E%E8%B0%83%E8%AF%95%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E7%B1%BB%E5%9E%8B/" class="article-date">
@@ -393,149 +565,11 @@
 
 
   
-    <article id="post-放大镜效果" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/wcmalley/2021/07/13/%E6%94%BE%E5%A4%A7%E9%95%9C%E6%95%88%E6%9E%9C/" class="article-date">
-  <time class="dt-published" datetime="2021-07-13T15:12:42.000Z" itemprop="datePublished">2021-07-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/wcmalley/2021/07/13/%E6%94%BE%E5%A4%A7%E9%95%9C%E6%95%88%E6%9E%9C/">放大镜效果</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>#实现放大镜</p>
-<ul>
-<li>css代码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        .container &#123;</span><br><span class="line">            width: 960px;</span><br><span class="line">            border: 1px solid #000;</span><br><span class="line">            margin: 0 auto;</span><br><span class="line">            position: relative;</span><br><span class="line">        &#125;</span><br><span class="line">        .mark &#123;</span><br><span class="line">            width: 300px;</span><br><span class="line">            height: 300px;</span><br><span class="line">            background: rgba(255, 255, 0, 0.5);</span><br><span class="line">            position: absolute;</span><br><span class="line">            top: 0;</span><br><span class="line">            left: 0;</span><br><span class="line">            pointer-events: none;</span><br><span class="line">        &#125;</span><br><span class="line">        .small &#123;</span><br><span class="line">            width: 450px;</span><br><span class="line">            height: 450px;</span><br><span class="line">            border: 1px solid #000;</span><br><span class="line">            /* float: left; */</span><br><span class="line">            position: relative;</span><br><span class="line">            cursor: pointer;</span><br><span class="line">        &#125;</span><br><span class="line">        .big &#123;</span><br><span class="line">            width: 540px;</span><br><span class="line">            height: 540px;</span><br><span class="line">            border: 1px solid #000;</span><br><span class="line">            position: absolute;</span><br><span class="line">            top: 0;</span><br><span class="line">            left: 450px;</span><br><span class="line">            display: none;</span><br><span class="line">            /* background: #f00; */</span><br><span class="line">            overflow: hidden;</span><br><span class="line">        &#125;</span><br><span class="line">        .bigimg&#123;</span><br><span class="line">            position: absolute;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure></li>
-<li>html代码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">     &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;small&quot;&gt;</span><br><span class="line">            &lt;img src=&quot;https://tvax1.sinaimg.cn/large/7206d247ly1gsnov903ptj20ci0ci3yu.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;mark&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;big&quot;&gt;</span><br><span class="line">            &lt;img class=&quot;bigimg&quot; src=&quot;https://tvax1.sinaimg.cn/large/7206d247ly1gsnou6112gj20m80m8wfx.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></li>
-<li>js代码<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">       var small = document.querySelector(&#x27;.small&#x27;);</span><br><span class="line">       var big = document.querySelector(&#x27;.big&#x27;);</span><br><span class="line">       var mark = document.querySelector(&#x27;.mark&#x27;);</span><br><span class="line">       var bigimg = document.querySelector(&#x27;.bigimg&#x27;);</span><br><span class="line">       var timer;</span><br><span class="line">       small.addEventListener(&#x27;mousemove&#x27;, function (e) &#123;</span><br><span class="line">           var x = e.offsetX;</span><br><span class="line">           var y = e.offsetY;</span><br><span class="line">           var markx =  (x - 150) &lt; 0 ? 0 : (x - 150) &gt;= 150 ?  150: (x - 150) ;</span><br><span class="line">           var marky = (y - 150) &lt; 0 ? 0 : (y - 150) &gt;= 150 ?  150: (y - 150) ;</span><br><span class="line">           mark.style.left = markx + &#x27;px&#x27;;</span><br><span class="line">           mark.style.top = marky + &#x27;px&#x27;;</span><br><span class="line">           // console.log(&#x27;移动&#x27;);</span><br><span class="line">           var bigimgx = markx / 450 * 800;</span><br><span class="line">           var bigimgy = marky / 450 * 800;</span><br><span class="line">           // console.log(bigimgx,bigimgy);</span><br><span class="line">           bigimg.style.left = &#x27;-&#x27;+ bigimgx + &#x27;px&#x27;;</span><br><span class="line">           bigimg.style.top = &#x27;-&#x27;+ bigimgy + &#x27;px&#x27;;</span><br><span class="line"></span><br><span class="line">       &#125;)</span><br><span class="line"></span><br><span class="line">       small.addEventListener(&#x27;mouseenter&#x27;, function () &#123;</span><br><span class="line">           big.style.display = &#x27;block&#x27;;</span><br><span class="line">       &#125;)</span><br><span class="line">       small.addEventListener(&#x27;mouseleave&#x27;, function () &#123;</span><br><span class="line">           // big.style.display = &#x27;none&#x27;;</span><br><span class="line">       &#125;)</span><br><span class="line">   &lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/13/%E6%94%BE%E5%A4%A7%E9%95%9C%E6%95%88%E6%9E%9C/" data-id="ckr4dp3w40004ycvj7yke7loh" data-title="放大镜效果" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-myfirstblog" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/wcmalley/2021/07/13/myfirstblog/" class="article-date">
-  <time class="dt-published" datetime="2021-07-13T15:03:13.000Z" itemprop="datePublished">2021-07-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/wcmalley/2021/07/13/myfirstblog/">myfirstblog</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="我的第一篇博客"><a href="#我的第一篇博客" class="headerlink" title="我的第一篇博客"></a>我的第一篇博客</h1><ul>
-<li>Javascript 高级程序设计 (event)</li>
-<li>防抖:每一次在单位时间内要发生第二次，上一次就取消</li>
-<li>节流：固定周期，只执行一次动作，若有事件触发，不执行，周期结束后，又有事件触发，开始新的周期</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/13/myfirstblog/" data-id="ckr4dp3w00001ycvjatuq3on1" data-title="myfirstblog" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/wcmalley/2021/07/13/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-07-13T14:55:39.661Z" itemprop="datePublished">2021-07-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/wcmalley/2021/07/13/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/07/13/hello-world/" data-id="ckr4dp3vm0000ycvj1212cktt" data-title="Hello World" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/wcmalley/">&laquo; Prev</a><a class="page-number" href="/wcmalley/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/wcmalley/">&laquo; Prev</a><a class="page-number" href="/wcmalley/">1</a><span class="page-number current">2</span><a class="page-number" href="/wcmalley/page/3/">3</a><a class="extend next" rel="next" href="/wcmalley/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -567,23 +601,23 @@
       <ul>
         
           <li>
+            <a href="/wcmalley/2021/08/05/%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/wcmalley/2021/08/05/es6%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/">es6对象的扩展</a>
+          </li>
+        
+          <li>
+            <a href="/wcmalley/2021/08/05/es6%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%B1%95/">es6数组的扩展</a>
+          </li>
+        
+          <li>
             <a href="/wcmalley/2021/08/05/ES6/">ES6</a>
           </li>
         
           <li>
             <a href="/wcmalley/2021/08/05/%E5%B9%BB%E7%81%AF%E7%89%87/">幻灯片</a>
-          </li>
-        
-          <li>
-            <a href="/wcmalley/2021/08/05/%E6%89%8B%E9%A3%8E%E7%90%B4/">手风琴</a>
-          </li>
-        
-          <li>
-            <a href="/wcmalley/2021/08/05/tab%E5%88%87%E6%8D%A2/">下拉列表tab切换</a>
-          </li>
-        
-          <li>
-            <a href="/wcmalley/2021/08/05/%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8/">下拉列表</a>
           </li>
         
       </ul>
