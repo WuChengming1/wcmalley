@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>vue | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="824VUE小结 vue是一套构建用户界面的渐进式框架。响应式数据发生变化dom也一起变。 声明式编程：只要页面中所有的数据和状态方法都要在data里出现。    常用的指令插值语法： 1234567891011121314151617181920212223242526272829303132333435363738创建一个vue实例先引入vue.js 文件&lt;div id&#x3D;&quot;ap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue">
+<meta property="og:url" content="http://example.com/2021/08/15/vue/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="824VUE小结 vue是一套构建用户界面的渐进式框架。响应式数据发生变化dom也一起变。 声明式编程：只要页面中所有的数据和状态方法都要在data里出现。    常用的指令插值语法： 1234567891011121314151617181920212223242526272829303132333435363738创建一个vue实例先引入vue.js 文件&lt;div id&#x3D;&quot;ap">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-08-15T09:26:30.000Z">
+<meta property="article:modified_time" content="2021-08-15T09:27:57.723Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/wcmalley/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/wcmalley/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/wcmalley/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/wcmalley/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/wcmalley/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/wcmalley/">Home</a>
+        
+          <a class="main-nav-link" href="/wcmalley/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/wcmalley/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-vue" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/wcmalley/2021/08/15/vue/" class="article-date">
+  <time class="dt-published" datetime="2021-08-15T09:26:30.000Z" itemprop="datePublished">2021-08-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      vue
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="824VUE小结"><a href="#824VUE小结" class="headerlink" title="824VUE小结"></a>824VUE小结</h2><ol>
+<li><p>vue是一套构建用户界面的渐进式框架。响应式数据发生变化dom也一起变。</p>
+<p>声明式编程：只要页面中所有的数据和状态方法都要在data里出现。</p>
+</li>
+</ol>
+<p> 常用的指令插值语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">创建一个vue实例</span><br><span class="line">先引入vue.js 文件</span><br><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    <span class="attr">el</span>:<span class="string">&quot;#app&quot;</span>,</span><br><span class="line">    <span class="attr">data</span>:&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//文本&#123;&#123;message&#125;&#125;</span></span><br><span class="line"><span class="comment">//v-html：&lt;p v-html=&quot;h2&quot;&gt;&lt;/p&gt;</span></span><br><span class="line">         data：&#123;<span class="attr">h2</span>:<span class="string">&#x27;&lt;h2&gt;dddd&lt;/h2&gt;&#x27;</span>&#125;</span><br><span class="line">动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击。请只对可信内容使用 HTML 插值，绝不要对用户提供的内容使用插值。</span><br><span class="line">XXL：跨站脚本攻击，主要是通过外部引入脚本和用户输入导致。</span><br><span class="line">解决办法：<span class="number">1.</span>把尖括号改为字符串&amp;it和&amp;gt,<span class="number">2.</span>对用户的输入进行过滤</span><br><span class="line"><span class="comment">//v-bind:title:绑定到某个属性上 ，单向的  简写（：title）</span></span><br><span class="line">&lt;a v-bind:href=<span class="string">&quot;url&quot;</span>&gt;...&lt;/a&gt;</span><br><span class="line"><span class="comment">//在这里 href 是参数，告知 v-bind 指令将该元素的 href attribute 与表达式 url 的值绑定。</span></span><br><span class="line"><span class="comment">//还可以bind动态的参数用方括号括起来例：不建议使用</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">v-bind:</span>[<span class="attr">attributeName</span>]=<span class="string">&quot;url&quot;</span>&gt;</span> ... <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//v-on:click=&quot;&quot;:添加事件监听当用户点击时触发，简写（@click=&quot;&quot;）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//v-model=&quot;&quot;:双向绑定，将input值发生变化给  vue应用状态变化  再到返回视图变化</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//v-if=&quot;seen&quot;:用来切换显示隐藏，适用于偶尔切换少，dom不存在，</span></span><br><span class="line"><span class="comment">//v-show=&quot;seen&quot;:也是用来切换显示隐藏，适用于频繁切换，它是通过css中的display属性控制的，隐藏后dom仍然存在。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//v-once=&quot;&quot;:只触发一次，当数据发生在不会触发</span></span><br><span class="line">attribute:通过v-bind：来实现对应的事件。</span><br><span class="line"></span><br><span class="line"><span class="comment">//是用javascript表达式：&#123;&#123; number + 1 &#125;&#125;，&#123;&#123; ok ? &#x27;YES&#x27; : &#x27;NO&#x27; &#125;&#125;，&#123;&#123; message.split(&#x27;&#x27;).reverse().join(&#x27;&#x27;) &#125;&#125;</span></span><br><span class="line">不能使用语句如：&#123;&#123; <span class="keyword">var</span> a = <span class="number">1</span> &#125;&#125;，&#123;&#123; <span class="keyword">if</span> (ok) &#123; <span class="keyword">return</span> message &#125; &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()：</span></span><br><span class="line">&lt;form v-on:submit.prevent=<span class="string">&quot;onSubmit&quot;</span>&gt;...&lt;/form&gt;</span><br><span class="line"></span><br><span class="line">组件template</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>生命周期:当实例被创建到销毁的过程，经过一系列操作​</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明周期钩子，8钩子4阶段</span></span><br><span class="line"> 			<span class="function"><span class="title">beforeCreate</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;beforeCreate前data数据拿不到&#x27;</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">created</span>(<span class="params"></span>)</span>&#123;  <span class="comment">//可以通过this取得我们vue实例，取得就可以进行一些操作  </span></span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;Created 可以拿到data数据&#x27;</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">//1.有没有el:有的话下一步有没有template么有的话，在页面中找id为app的dom 找到以 把他的 outerHTML（包含自己） 当作template模板编译 ，编译为虚拟dom，</span></span><br><span class="line">            <span class="comment">//1. 编译成虚拟dom 2. 最后再把这个虚拟dom渲染到页面中(render)  挂载到页面</span></span><br><span class="line">            <span class="comment">//当输出为对象时如果data没有它不会报错，</span></span><br><span class="line">             <span class="comment">// 2.没有el:有没有template，主要是在组件上用的（因为组件造出来是未知的），实例也可以用；</span></span><br><span class="line">             <span class="attr">template</span>:<span class="string">`&lt;div&gt; &#123;&#123;message&#125;&#125;&lt;/div&gt;`</span>,编译template</span><br><span class="line">			手动app.$mount(app);调用才会进入挂载完成。</span><br><span class="line">            <span class="function"><span class="title">beforeMount</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;beforeMount：挂载页面中，还看不到页面&#x27;</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">mounted</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;Mounted渲染成功，可以看到页面了，挂载到页面&#x27;</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">beforeUpdate</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;有数据要发生变化了，准备更新&#x27;</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">                <span class="comment">//不断循环：当数据有变化时触发，哪里有差异，漏洞就在哪里就在哪里patch（打补丁）</span></span><br><span class="line">                <span class="comment">//如果同一时间操作多个数据，它会合并一起更新</span></span><br><span class="line">            <span class="function"><span class="title">updated</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;数据更新完成&#x27;</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">beforeDestroy</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;销毁前&#x27;</span>);</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="function"><span class="title">destroyed</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">&#x27;销毁完成&#x27;</span>);<span class="comment">//销毁是事件，不是把dom销毁</span></span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure></li>
+<li><p>计算属性和侦听器</p>
+<p>computed和data同等级别，在计算属性对象里面的每一个属性都是一个计算属性 ，在计算属性里的每一个都依赖一个或多个其他data。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.你可以像绑定普通 property 一样在模板中绑定计算属性。Vue 知道 vm.reversedMessage 依赖于 vm.message，因此当 vm.message 发生改变时，所有依赖 vm.reversedMessage 的绑定也会更新。</span></span><br><span class="line"><span class="number">2.</span>计算属性缓存 vs 方法；</span><br><span class="line"> &lt;p&gt;计算属性:可以缓存，值变我变&#123;&#123;reversermessage&#125;&#125;&lt;/p&gt;优先使用计算属性，用不了在用methods</span><br><span class="line"> &lt;p&gt;方法实现：每一次调都要调用&#123;&#123;reversermassage()&#125;&#125;&lt;/p&gt;</span><br><span class="line">&#123;&#123;changemassage&#125;&#125;-&#123;&#123;massage&#125;&#125;</span><br><span class="line"><span class="attr">computed</span>:&#123;</span><br><span class="line">     <span class="function"><span class="title">reversermessage</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">&#x27;计算属性 &#x27;</span>);</span><br><span class="line">                    <span class="keyword">return</span> <span class="built_in">this</span>.message.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">                &#125;</span><br><span class="line">       <span class="attr">changemassage</span>:&#123;</span><br><span class="line">                <span class="function"><span class="title">get</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="built_in">this</span>.massage</span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="comment">//计算属性是双向的，可以设置取值</span></span><br><span class="line">                <span class="function"><span class="title">set</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="built_in">this</span>.massage =name</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="attr">methods</span>:&#123;</span><br><span class="line">     <span class="function"><span class="title">reversermassage</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">&#x27;函数调用&#x27;</span>);</span><br><span class="line">                    <span class="keyword">return</span> <span class="built_in">this</span>.message.split(<span class="string">&#x27;&#x27;</span>).reverse().join(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">                &#125;</span><br><span class="line">&#125;</span><br><span class="line">计算属性是基于它们的响应式依赖进行缓存的,当数据发生变化是才改变，而methods只要执行一次掉一次</span><br><span class="line"><span class="number">3.</span>计算属性 vs 侦听属性</span><br><span class="line">侦听器：通过watch可以监听实例上数据的变化，正常事件没有办法做的时候，可以通过它显示的监听</span><br><span class="line"> <span class="attr">watch</span> :&#123;</span><br><span class="line">            <span class="function"><span class="title">message</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">&#x27;发生变化了&#x27;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">           &#125;,</span><br><span class="line"></span><br><span class="line">如果一开始，在data上数据没有添加。可以通过created&#123;<span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.$set(<span class="built_in">this</span>.obj,<span class="string">&#x27;c&#x27;</span>,<span class="number">5</span>)</span><br><span class="line">&#125;,<span class="number">5000</span>)&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>class与style</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.对象分格类。</span></span><br><span class="line">&lt;button @click=<span class="string">&quot;isActive=！isActive&quot;</span>&gt;测试&lt;/button&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;changebg&quot;</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span> <span class="attr">:class</span>=<span class="string">&quot;&#123;red:isActive,可以有多个类，用逗号隔开，通过切换isActive是否添加类&#125;&quot;</span> <span class="attr">:class</span>=<span class="string">&quot;changebg&quot;</span>&gt;</span>box<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="comment">//也可以先写在函数里面,方法里添加要加this</span></span><br><span class="line">methods:&#123;</span><br><span class="line">    <span class="function"><span class="title">changebg</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">this</span>.isActive = !<span class="built_in">this</span>.isActive</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.数组语法：</span></span><br><span class="line">&lt;div :bind=<span class="string">&quot;[activeclass,errorclass]&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">data:&#123;</span><br><span class="line">    <span class="attr">activeclass</span>:<span class="string">&#x27;active&#x27;</span>,</span><br><span class="line">    <span class="attr">errorclass</span>:<span class="string">&#x27;text-data&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//3.内联样式绑定：style当用类改变不了就用它</span></span><br><span class="line">&lt;div :style=<span class="string">&quot;&#123;color:activecolor,fontSize=fontSize+&#x27;px&#x27;&#125;&quot;</span>&gt;<span class="comment">//前面属性，后面属性值</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/08/15/vue/" data-id="cksd09mjk0000nsvjcyec14bb" data-title="vue" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/wcmalley/2021/08/06/es6set%E5%92%8Cmap/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">es6set和map</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/wcmalley/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/wcmalley/archives/2021/07/">July 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/wcmalley/2021/08/15/vue/">vue</a>
+          </li>
+        
+          <li>
+            <a href="/wcmalley/2021/08/06/es6set%E5%92%8Cmap/">es6set和map</a>
+          </li>
+        
+          <li>
+            <a href="/wcmalley/2021/08/05/es6%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%A9%E5%B1%95/">es6对象的扩展</a>
+          </li>
+        
+          <li>
+            <a href="/wcmalley/2021/08/05/es6%E6%95%B0%E7%BB%84%E7%9A%84%E6%89%A9%E5%B1%95/">es6数组的扩展</a>
+          </li>
+        
+          <li>
+            <a href="/wcmalley/2021/08/05/ES6/">ES6</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/wcmalley/" class="mobile-nav-link">Home</a>
+  
+    <a href="/wcmalley/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/wcmalley/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/wcmalley/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/wcmalley/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
